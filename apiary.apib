@@ -1,80 +1,151 @@
 FORMAT: 1A
-HOST: http://polls.apiblueprint.org/
+HOST: http://api.stg.kioson.biz/api/v1
 
 # de453f5c6caba980baa12b6eb31543dc
 
-Polls is a simple API allowing consumers to view polls and vote in them.
+bridging for existing API to New API format
 
-## Questions Collection [/questions]
+## App Collection [/mobile]
 
-### List All Questions [GET]
-
-+ Response 200 (application/json)
-
-        [
-            {
-                "question": "Favourite programming language?",
-                "published_at": "2015-08-05T08:40:51.620Z",
-                "choices": [
-                    {
-                        "choice": "Swift",
-                        "votes": 2048
-                    }, {
-                        "choice": "Python",
-                        "votes": 1024
-                    }, {
-                        "choice": "Objective-C",
-                        "votes": 512
-                    }, {
-                        "choice": "Ruby",
-                        "votes": 256
-                    }
-                ]
-            }
-        ]
-
-### Create a New Question [POST]
-
-You may create your own question using this action. It takes a JSON
-object containing a question and a collection of answers in the
-form of choices.
+### Check Version [POST /mobile/check_version]
 
 + Request (application/json)
 
         {
-            "question": "Favourite programming language?",
-            "choices": [
-                "Swift",
-                "Python",
-                "Objective-C",
-                "Ruby"
-            ]
+            "device_version": "7.0"
         }
 
-+ Response 201 (application/json)
++ Response 200 (application/json)
 
-    + Headers
-
-            Location: /questions/2
-
-    + Body
-
-            {
-                "question": "Favourite programming language?",
-                "published_at": "2015-08-05T08:40:51.620Z",
-                "choices": [
-                    {
-                        "choice": "Swift",
-                        "votes": 0
-                    }, {
-                        "choice": "Python",
-                        "votes": 0
-                    }, {
-                        "choice": "Objective-C",
-                        "votes": 0
-                    }, {
-                        "choice": "Ruby",
-                        "votes": 0
-                    }
-                ]
+        {
+            "code": 200,
+            "status": true,
+            "message": "Aplikasi versi 1.0 sudah nggak mendukung usahamu lagi. Segera update aplikasimu sekarang!",
+            "data": {
+                "current_version": "6.5",
+                "url": "http://refro.kioson.biz/ipayrefroserver/IPAY_ReFro.apk.rar"
             }
+        }
+
+### Slider [GET /mobile/slider]
+
++ Response 200 (text/html)
+
+### Home Banner [GET /mobile/home_banner]
+
++ Response 200 (text/html)
+
+### Technical Help [GET /mobile/technical_help]
+status: todo
+
++ Response 200 (application/json)
+
+### Configuration [GET /mobile/configuration]
+status: todo
+
++ Response 200 (application/json)
+
+## Preset Collection [/presets]
+
+### Shop Types [GET /shop_types]
+status: todo
+
++ Response 200 (application/json)
+
+### All Operators [GET /operators]
+status: todo
+
++ Response 200 (application/json)
+
+## Auth Collection [/auth]
+
+### Auth Register [POST /auth/register]
+status: doing
+
++ Response 200 (application/json)
+
+### Auth Login [POST /auth/login]
+
++ Request (application/json)
+
+        {
+            "username": "rzzy",
+            "password": "12345"
+        }
+
++ Response 200 (application/json)
+
+        {
+            "code": 200,
+            "status": true,
+            "message": "Login sukses",
+            "data": {
+                "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaW4iOiJiYzBiZmMzYWQwNGFlNGE4YTY1NDQ0ZWRkMzAwMDQxNiIsInNlc3Npb25faWQiOiI0N2I3OWEwYy1jYTZmLTExZTctYSIsInJldGFpbGVyX2lkIjoicnp6eSIsImlhdCI6MTUxMDc5NjQ5NSwiZXhwIjoxNTExNDAxMjk1fQ.WOViLhW5QmD5Go305BWdoT-22-CpRUUCNjCNHz5z04w"
+            }
+        }
+
+### Auth Logout [GET /logout]
+status: todo
+
++ Response 200 (application/json)
+
+## OTP Collection [/otp]
+
+### Resend OTP [POST /send]
+status: todo
+
++ Response 200 (application/json)
+
+### Resend OTP [POST /verify]
+status: todo
+
++ Response 200 (application/json)
+
+## KCP Collection [/kcp]
+
+### KCP Service Location [GET /service_location]
+status: todo
+
++ Response 200 (application/json)
+
+### KCP Information [GET /information]
+status: todo
+
++ Response 200 (application/json)
+
+### KCP Update Profile [PUT /profile]
+status: todo
+
++ Response 200 (application/json)
+
+### KCP Pin [GET /pin]
+status: todo
+
++ Response 200 (application/json)
+
+### KCP List Messages [GET /messages]
+status: todo
+
++ Response 200 (application/json)
+
+### KCP Update App Version [PUT /app_version]
+status: todo
+
++ Response 200 (application/json)
+
+### KCP Loan Activity [POST /loan_activity]
+status: todo
+
++ Response 200 (application/json)
+
+
+### KCP Balances [GET /balances]
+status: todo
+
++ Response 200 (application/json)
+
+## Order Collection [/orders]
+### List Orders [GET /]
+status: todo
+
++ Response 200 (application/json)
