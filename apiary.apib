@@ -12,7 +12,7 @@ bridging for existing API to New API format
 + Request (application/json)
 
         {
-            "device_version": "7.0"
+            "device_version": "1.0"
         }
 
 + Response 200 (application/json)
@@ -22,7 +22,7 @@ bridging for existing API to New API format
             "status": true,
             "message": "Aplikasi versi 1.0 sudah nggak mendukung usahamu lagi. Segera update aplikasimu sekarang!",
             "data": {
-                "current_version": "6.5",
+                "current_version": "7.0",
                 "url": "http://refro.kioson.biz/ipayrefroserver/IPAY_ReFro.apk.rar"
             }
         }
@@ -60,9 +60,26 @@ status: todo
 ## Auth Collection [/auth]
 
 ### Auth Register [POST /auth/register]
-status: doing
+
++ Request (application/json)
+
+        {
+            "otp": "123456",
+            "name": "User Skyshi",
+            "email": "user@skyshi.com",
+            "phone_number": "082111333599",
+            "password": "12345678",
+            "referral_code": ""
+        }
 
 + Response 200 (application/json)
+
+        {
+            "code": 200,
+            "status": true,
+            "message": "Pendaftaran Kioson Anda akan diproses. ID Kioson Cash Point (ID KCP) Anda akan dibuat dalam periode 24 jam dan akan dikomunikasikan ke Anda melalui SMS. Untuk pertanyaan dan informasi lebih lanjut, hubungi Call Center Kioson di 0812-9556-8383 (TELKOMSEL), 0818-0721-8383 (XL), 0857-7625-8383 (INDOSAT), dan 0899-983-8383 (THREE). Terima Kasih",
+            "data": {}
+        }
 
 ### Auth Login [POST /auth/login]
 
@@ -91,15 +108,22 @@ status: todo
 
 ## OTP Collection [/otp]
 
-### Resend OTP [POST /send]
-status: todo
+### Resend OTP [POST /otp/send]
+
++ Request (application/json)
+
+        {
+            "phone_number": "082123456789"
+        }
 
 + Response 200 (application/json)
 
-### Resend OTP [POST /verify]
-status: todo
-
-+ Response 200 (application/json)
+        {
+            "code": 200,
+            "status": true,
+            "message": "OTP will sent to your register mobile number",
+            "data": {}
+        }
 
 ## KCP Collection [/kcp]
 
