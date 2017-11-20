@@ -95,7 +95,7 @@ status: todo
         {
             "code": 200,
             "status": true,
-            "message": "Login sukses",
+            "message": "Success",
             "data": {
                 "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaW4iOiJiYzBiZmMzYWQwNGFlNGE4YTY1NDQ0ZWRkMzAwMDQxNiIsInNlc3Npb25faWQiOiI0N2I3OWEwYy1jYTZmLTExZTctYSIsInJldGFpbGVyX2lkIjoicnp6eSIsImlhdCI6MTUxMDc5NjQ5NSwiZXhwIjoxNTExNDAxMjk1fQ.WOViLhW5QmD5Go305BWdoT-22-CpRUUCNjCNHz5z04w"
             }
@@ -125,45 +125,79 @@ status: todo
             "data": {}
         }
 
-## KCP Collection [/kcp]
+## User Collection [/user]
 
-### KCP Service Location [GET /service_location]
+### Service Location [GET /user/service_location]
 status: todo
 
 + Response 200 (application/json)
 
-### KCP Information [GET /information]
+### Information [GET /user/information]
 status: todo
 
 + Response 200 (application/json)
 
-### KCP Update Profile [PUT /profile]
+### Update Profile [PUT /user]
+
++ Request (application/json)
+
+        {
+            "name": "Satrio Wisnugroho",
+            "email": "wisnugrohosatrio@gmail.com",
+            "store_name": "Wisnu Cell",
+            "store_phone": "082138844644",
+            "store_type": "TOKO PULSA",
+            "street": "Tampomas Sleman",
+            "province": "BALI",
+            "district": "BADUNG",
+            "city": "KUTA SELATAN",
+            "village": "KUTUH",
+            "zip_code": "123456",
+            "store_street": "Tampomas Sleman",
+            "store_province": "BALI",
+            "store_district": "BADUNG",
+            "store_city": "KUTA SELATAN",
+            "store_village": "KUTUH",
+            "store_zip_code": "123456",
+            "latitude": "-7.77135075",
+            "longitude": "110.34580316",
+            "isShop": "0",
+            "id_image": "base64",
+            "store_image": "base64",
+            "selfie_image": "base64"
+        }
+
++ Response 200 (application/json)
+
+        {
+            "code": 200,
+            "status": true,
+            "message": "Udpated Successfully.",
+            "data": {}
+        }
+
+### Pin [GET /user/pin]
 status: todo
 
 + Response 200 (application/json)
 
-### KCP Pin [GET /pin]
+### List Messages [GET /user/messages]
 status: todo
 
 + Response 200 (application/json)
 
-### KCP List Messages [GET /messages]
+### Update App Version [PUT /user/app_version]
 status: todo
 
 + Response 200 (application/json)
 
-### KCP Update App Version [PUT /app_version]
-status: todo
-
-+ Response 200 (application/json)
-
-### KCP Loan Activity [POST /loan_activity]
+### Loan Activity [POST /user/loan_activity]
 status: todo
 
 + Response 200 (application/json)
 
 
-### KCP Balances [GET /balances]
+### Balances [GET /user/balances]
 status: todo
 
 + Response 200 (application/json)
