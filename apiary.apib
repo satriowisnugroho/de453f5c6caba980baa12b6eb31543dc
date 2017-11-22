@@ -5,7 +5,7 @@ HOST: http://api.stg.kioson.biz/api/v1
 
 bridging for existing API to New API format
 
-## App Collection [/mobile]
+## App [/mobile]
 
 ### Check Version [POST /mobile/check_version]
 
@@ -45,7 +45,7 @@ status: todo
 
 + Response 200 (application/json)
 
-## Preset Collection [/presets]
+## Preset [/presets]
 
 ### Shop Types [GET /shop_types]
 status: todo
@@ -57,7 +57,7 @@ status: todo
 
 + Response 200 (application/json)
 
-## Auth Collection [/auth]
+## Auth [/auth]
 
 ### Auth Register [POST /auth/register]
 
@@ -106,7 +106,7 @@ status: todo
 
 + Response 200 (application/json)
 
-## OTP Collection [/otp]
+## OTP [/otp]
 
 ### Resend OTP [POST /otp/send]
 
@@ -125,7 +125,7 @@ status: todo
             "data": {}
         }
 
-## User Collection [/user]
+## User [/user]
 
 ### Service Location [GET /user/service_location]
 status: todo
@@ -236,8 +236,116 @@ status: todo
 
 + Response 200 (application/json)
 
-## Order Collection [/orders]
+## Order [/orders]
+
 ### List Orders [GET /]
 status: todo
 
 + Response 200 (application/json)
+
+## Location [/location]
+
+### States [GET /location/states]
+
++ Response 200 (application/json)
+
+        {
+            "code": 200,
+            "status": true,
+            "message": "Success",
+            "data": [
+                {
+                    "id": 1,
+                    "name": "BALI"
+                },
+                {
+                    "id": 2,
+                    "name": "BANGKA BELITUNG"
+                },
+                {
+                    "id": 2,
+                    "name": "BANTEN"
+                }
+            ]
+        }
+
+### Districts [GET /location/districts?state_id={state_id}]
+
++ Parameters
+    + state_id: 1 (number, required)
+
++ Response 200 (application/json)
+
+        {
+            "code": 200,
+            "status": true,
+            "message": "Success",
+            "data": [
+                {
+                    "id": 1,
+                    "name": "BADUNG"
+                },
+                {
+                    "id": 2,
+                    "name": "BANGLI"
+                },
+                {
+                    "id": 3,
+                    "name": "BULELENG"
+                }
+            ]
+        }
+
+### Cities [GET /location/cities?district_id={district_id}]
+
++ Parameters
+    + district_id: 3 (number, required)
+
++ Response 200 (application/json)
+
+        {
+            "code": 200,
+            "status": true,
+            "message": "Success",
+            "data": [
+                {
+                    "id": 1,
+                    "name": "BANJAR"
+                },
+                {
+                    "id": 2,
+                    "name": "BULELENG"
+                },
+                {
+                    "id": 3,
+                    "name": "BUSUNGBIU"
+                }
+            ]
+        }
+
+### Villages [GET /location/villages?city_id={city_id}]
+
++ Parameters
+    + city_id: 1 (number, required)
+
++ Response 200 (application/json)
+
+        {
+            "code": 200,
+            "status": true,
+            "message": "Success",
+            "data": [
+                {
+                    "id": 1,
+                    "name": "BALOKANG"
+                },
+                {
+                    "id": 2,
+                    "name": "BANDUNG"
+                },
+                {
+                    "id": 3,
+                    "name": "BANJAR"
+                }
+            ]
+        }
