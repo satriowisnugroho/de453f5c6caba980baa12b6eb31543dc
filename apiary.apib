@@ -349,3 +349,297 @@ status: todo
                 }
             ]
         }
+
+## Transaction [/transactions]
+
+### List Orders [GET /?page={page}&limit={limit}&start_at={start_at}&end_at={end_at}]
+
++ Parameters
+    + page: 1 (number, required)
+    + limit: 10 (number, required)
+    + start_at: 1510743893 (number, required)
+    + end_at: 1511943257 (number, required)
+
++ Response 200 (application/json)
+
+        {
+            "code": 200,
+            "status": true,
+            "message": "Success",
+            "data": [
+                {
+                    "id": 1,
+                    "order_number": "RM-091239",
+                    "product": "Isi Pulsa 10RB",
+                    "transaction_at": 1511943257,
+                    "admin_fee": 0,
+                    "discount": 1000,
+                    "amount": 10000,
+                    "status": "SUCCESS",
+                    "extra": {
+                        "phone_number": "082123123123"
+                    }
+                },
+                {
+                    "id": 2,
+                    "order_number": "RP-091239",
+                    "product": "Paket Data XL-XTRA COMBO 50GB",
+                    "transaction_at": 1511943257,
+                    "admin_fee": 0,
+                    "discount": 1000,
+                    "amount": 10000,
+                    "status": "SUCCESS",
+                    "extra": {
+                        "phone_number": "082123123123"
+                    }
+                },
+                {
+                    "id": 3,
+                    "order_number": "PB-091239",
+                    "product": "Pasca Bayar Telkomsel",
+                    "transaction_at": 1511943257,
+                    "admin_fee": 1000,
+                    "discount": 1000,
+                    "amount": 150000,
+                    "status": "SUCCESS",
+                    "extra": {
+                        "phone_number": "082123123123",
+                        "name": "Satrio Wisnugroho",
+                        "period": "Januari - Agustus 2017",
+                        "tagihan": 150000,
+                        "reference_number": "981723987123"
+                    }
+                },
+                {
+                    "id": 4,
+                    "order_number": "BT-091239",
+                    "product": "Transfer Uang",
+                    "transaction_at": 1511943257,
+                    "admin_fee": 1000,
+                    "discount": 1000,
+                    "amount": 150000,
+                    "status": "SUCCESS",
+                    "extra": {
+                        "sender_name": "Satrio Wisnugroho",
+                        "holder_account_number": "723787123",
+                        "nominal": 150000
+                    }
+                },
+                {
+                    "id": 5,
+                    "order_number": "KP-091239",
+                    "product": "Kioson Pay",
+                    "transaction_at": 1511943257,
+                    "admin_fee": 1000,
+                    "discount": 1000,
+                    "amount": 150000,
+                    "status": "SUCCESS",
+                    "extra": {
+                        "e_commerce": "",
+                        "name": "Satrio Wisnugroho",
+                        "payment_code": "982374",
+                        "price": 150000
+                    }
+                },
+                {
+                    "id": 6,
+                    "order_number": "TPLN-091239",
+                    "product": "Token Listrik",
+                    "transaction_at": 1511943257,
+                    "admin_fee": 1000,
+                    "discount": 1000,
+                    "amount": 150000,
+                    "status": "SUCCESS",
+                    "extra": {
+                        "customer_id": "wisnugro",
+                        "name": "Satrio Wisnugroho",
+                        "fare": 1000,
+                        "token": "9081-0923-9182-1230-1233",
+                        "kwh": 20,
+                        "price": 150000,
+                        "admin": "Setia Novanti",
+                        "materai": 6000,
+                        "ppn": 10,
+                        "ppj": 5,
+                        "angsuran": 5000,
+                        "reference_number": "09812309890"
+                    }
+                },
+                {
+                    "id": 7,
+                    "order_number": "BPLN-091239",
+                    "product": "Tagihan Listrik",
+                    "transaction_at": 1511943257,
+                    "admin_fee": 1000,
+                    "discount": 1000,
+                    "amount": 150000,
+                    "status": "SUCCESS",
+                    "extra": {
+                        "customer_id": "wisnugro",
+                        "name": "Satrio Wisnugroho",
+                        "fare": 1000,
+                        "period": "November - Desember 2017",
+                        "stand_meter": 500,
+                        "reference_number": "09812309890"
+                    }
+                },
+                {
+                    "id": 8,
+                    "order_number": "PDAM-091239",
+                    "product": "Air PDAM",
+                    "transaction_at": 1511943257,
+                    "admin_fee": 1000,
+                    "discount": 1000,
+                    "amount": 150000,
+                    "status": "SUCCESS",
+                    "extra": {
+                        "customer_id": "wisnugro",
+                        "name": "Satrio Wisnugroho",
+                        "period": "November - Desember 2017",
+                        "stand_meter": 500,
+                        "bill": 150000
+                    }
+                },
+                {
+                    "id": 9,
+                    "order_number": "ITV-091239",
+                    "product": "Internet & TV Kabel AORA TV",
+                    "transaction_at": 1511943257,
+                    "admin_fee": 1000,
+                    "discount": 1000,
+                    "amount": 150000,
+                    "status": "SUCCESS",
+                    "extra": {
+                        "customer_id": "wisnugro",
+                        "name": "Satrio Wisnugroho",
+                        "reff_number": "8723489",
+                        "soa_number": "9817238"
+                        "cycle_date": 1,
+                        "due_date": 1511943257,
+                        "bill": 150000
+                    }
+                },
+                {
+                    "id": 10,
+                    "order_number": "ITV-091239",
+                    "product": "Internet & TV Kabel Indovision TV",
+                    "transaction_at": 1511943257,
+                    "admin_fee": 1000,
+                    "discount": 1000,
+                    "amount": 150000,
+                    "status": "SUCCESS",
+                    "extra": {
+                        "customer_id": "wisnugro",
+                        "name": "Satrio Wisnugroho",
+                        "period": "Juni - Juli 2017",
+                        "bill": 150000
+                    }
+                },
+                {
+                    "id": 11,
+                    "order_number": "ITV-091239",
+                    "product": "Internet & TV Kabel Nexmedia TV",
+                    "transaction_at": 1511943257,
+                    "admin_fee": 1000,
+                    "discount": 1000,
+                    "amount": 150000,
+                    "status": "SUCCESS",
+                    "extra": {
+                        "customer_id": "wisnugro",
+                        "name": "Satrio Wisnugroho",
+                        "reff_number": "8723489",
+                        "package": "family",
+                        "due_date": 1511943257,
+                        "bill": 150000
+                    }
+                },
+                {
+                    "id": 12,
+                    "order_number": "ITV-091239",
+                    "product": "Internet & TV Kabel Orange TV",
+                    "transaction_at": 1511943257,
+                    "admin_fee": 1000,
+                    "discount": 1000,
+                    "amount": 150000,
+                    "status": "SUCCESS",
+                    "extra": {
+                        "customer_id": "wisnugro",
+                        "name": "Satrio Wisnugroho",
+                        "reff_number": "8723489",
+                        "denomination": 2,
+                        "bill": 150000
+                    }
+                },
+                {
+                    "id": 13,
+                    "order_number": "ITV-091239",
+                    "product": "Internet & TV Kabel Topas TV",
+                    "transaction_at": 1511943257,
+                    "admin_fee": 1000,
+                    "discount": 1000,
+                    "amount": 150000,
+                    "status": "SUCCESS",
+                    "extra": {
+                        "customer_id": "wisnugro",
+                        "name": "Satrio Wisnugroho",
+                        "reff_number": "9812398",
+                        "period": "Juni - Juli 2017",
+                        "bill": 150000
+                    }
+                },
+                {
+                    "id": 14,
+                    "order_number": "GV-091239",
+                    "product": "Game Voucher",
+                    "transaction_at": 1511943257,
+                    "admin_fee": 1000,
+                    "discount": 1000,
+                    "amount": 150000,
+                    "status": "SUCCESS",
+                    "extra": {
+                        "voucher_code": "HSKN82J",
+                        "price": 150000
+                    }
+                },
+                {
+                    "id": 15,
+                    "order_number": "BPJS-091239",
+                    "product": "BPJS",
+                    "transaction_at": 1511943257,
+                    "admin_fee": 1000,
+                    "discount": 1000,
+                    "amount": 150000,
+                    "status": "SUCCESS",
+                    "extra": {
+                        "va_number": "981239",
+                        "name": "Satrio Wisnugroho",
+                        "number_of_participants": 3,
+                        "period": "Agustus - September 2017",
+                        "branch": "Sleman",
+                        "reference_number": "918234989123",
+                        "bill": 150000
+                    }
+                },
+                {
+                    "id": 16,
+                    "order_number": "INST-091239",
+                    "product": "Bayar Angsuran BAF",
+                    "transaction_at": 1511943257,
+                    "admin_fee": 1000,
+                    "discount": 1000,
+                    "amount": 150000,
+                    "status": "SUCCESS",
+                    "extra": {
+                        "customer_id": "wisnugro",
+                        "name": "Satrio Wisnugroho",
+                        "licence_plate": "AD 4459 IJ",
+                        "vehicle_type": "Trails",
+                        "installment_to": 5,
+                        "installment_amount": 150000,
+                        "tenor": 160000,
+                        "due_date": 1511943257,
+                        "penalti": 0
+                    }
+                }
+            ]
+        }
