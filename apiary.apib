@@ -5,14 +5,15 @@ HOST: http://api.stg.kioson.biz/api/v1
 
 bridging for existing API to New API format
 
-## App [/mobile]
+## Auth [/auth]
 
-### Check Version [POST /mobile/check-version]
+### Auth Login [POST /auth/login]
 
 + Request (application/json)
 
         {
-            "device_version": "1.0"
+            "username": "rzzy",
+            "password": "12345"
         }
 
 + Response 200 (application/json)
@@ -20,44 +21,11 @@ bridging for existing API to New API format
         {
             "code": 200,
             "status": true,
-            "message": "Aplikasi versi 1.0 sudah nggak mendukung usahamu lagi. Segera update aplikasimu sekarang!",
+            "message": "Success",
             "data": {
-                "current_version": "7.0",
-                "url": "http://refro.kioson.biz/ipayrefroserver/IPAY_ReFro.apk.rar"
+                "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaW4iOiJiYzBiZmMzYWQwNGFlNGE4YTY1NDQ0ZWRkMzAwMDQxNiIsInNlc3Npb25faWQiOiI0N2I3OWEwYy1jYTZmLTExZTctYSIsInJldGFpbGVyX2lkIjoicnp6eSIsImlhdCI6MTUxMDc5NjQ5NSwiZXhwIjoxNTExNDAxMjk1fQ.WOViLhW5QmD5Go305BWdoT-22-CpRUUCNjCNHz5z04w"
             }
         }
-
-### Slider [GET /mobile/slider]
-
-+ Response 200 (text/html)
-
-### Home Banner [GET /mobile/home-banner]
-
-+ Response 200 (text/html)
-
-### Technical Help [GET /mobile/technical-help]
-status: todo
-
-+ Response 200 (application/json)
-
-### Configuration [GET /mobile/configuration]
-status: todo
-
-+ Response 200 (application/json)
-
-## Preset [/presets]
-
-### Shop Types [GET /shop_types]
-status: todo
-
-+ Response 200 (application/json)
-
-### All Operators [GET /operators]
-status: todo
-
-+ Response 200 (application/json)
-
-## Auth [/auth]
 
 ### Auth Register [POST /auth/register]
 
@@ -81,14 +49,7 @@ status: todo
             "data": {}
         }
 
-### Auth Login [POST /auth/login]
-
-+ Request (application/json)
-
-        {
-            "username": "rzzy",
-            "password": "12345"
-        }
+### Auth Logout [GET /auth/logout]
 
 + Response 200 (application/json)
 
@@ -96,24 +57,19 @@ status: todo
             "code": 200,
             "status": true,
             "message": "Success",
-            "data": {
-                "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaW4iOiJiYzBiZmMzYWQwNGFlNGE4YTY1NDQ0ZWRkMzAwMDQxNiIsInNlc3Npb25faWQiOiI0N2I3OWEwYy1jYTZmLTExZTctYSIsInJldGFpbGVyX2lkIjoicnp6eSIsImlhdCI6MTUxMDc5NjQ5NSwiZXhwIjoxNTExNDAxMjk1fQ.WOViLhW5QmD5Go305BWdoT-22-CpRUUCNjCNHz5z04w"
-            }
+            "data": {}
         }
 
-### Auth Logout [GET /logout]
-status: todo
+## Global [/global]
 
-+ Response 200 (application/json)
-
-## OTP [/otp]
-
-### Resend OTP [POST /otp/send]
+### Check Version [POST /coupon]
 
 + Request (application/json)
 
         {
-            "phone_number": "082123456789"
+            "coupon_code": "RMD10X",
+            "service_product_id": 756,
+            "service_type": null
         }
 
 + Response 200 (application/json)
@@ -121,18 +77,11 @@ status: todo
         {
             "code": 200,
             "status": true,
-            "message": "OTP will sent to your register mobile number",
+            "message": "",
             "data": {}
         }
 
-## User [/user]
-
-### Service Location [GET /user/service-location]
-status: todo
-
-+ Response 200 (application/json)
-
-### Information [GET /user]
+### Get News [GET /news]
 
 + Response 200 (application/json)
 
@@ -140,108 +89,41 @@ status: todo
             "code": 200,
             "status": true,
             "message": "Success",
-            "data": {
-                "website": "N/A",
-                "retailer_id": "RZZY",
-                "icp_category_name": "KCP PREMIUM",
-                "distributer_id": "D0A",
-                "first_name": "Satrio",
-                "last_name": "Wisnugroho",
-                "mobile_no": "085694946170",
-                "mobno": "085694946170",
-                "dist_first_name": "IPay Tech",
-                "dist_lastt_name": "India",
-                "icc_category_name": "KCC PREMIUM",
-                "village": "KUTUH",
-                "constituency": "KUTA SELATAN",
-                "distmobnum": "9703437763",
-                "hno": "23",
-                "street": "AXA JAKARTAX",
-                "locality": "Tampomas Sleman",
-                "landmark": "XXX",
-                "city": "AXA JAKARTA",
-                "district": "BADUNG",
-                "pincode": "123456",
-                "state": "BALI",
-                "business_name": "Wisnu Cell",
-                "business_type": "TOKO PULSA",
-                "landline": "",
-                "email": "wisnugrohosatrio@gmail.com",
-                "customer_care": "+62-818-0721-8383,+62-812-9556-8383,+62-899-983-8383,+62-857-7625-8383,+62-817-233-3838"
-            }
+            "data": [
+                {
+                    "id": 4191,
+                    "status": 1,
+                    "category": "OFFERS",
+                    "subject": "Test News",
+                    "content": "Tawaran menarik nih harbolnas",
+                    "created_at": 1513150751
+                },
+                {
+                    "id": 4197,
+                    "status": 1,
+                    "category": "ADMIN",
+                    "subject": "admin",
+                    "content": "lorem ipsum dolor sit amet",
+                    "created_at": 1513217728
+                },
+                {
+                    "id": 4198,
+                    "status": 1,
+                    "category": "INFO",
+                    "subject": "info",
+                    "content": "lorem ipsum dolor sit amet",
+                    "created_at": 1513217755
+                },
+                {
+                    "id": 4199,
+                    "status": 1,
+                    "category": "OTHERS",
+                    "subject": "others",
+                    "content": "lorem ipsum dolor sit amet",
+                    "created_at": 1513217779
+                }
+            ]
         }
-
-### Update Profile [PUT /user]
-
-+ Request (application/json)
-
-        {
-            "name": "Satrio Wisnugroho",
-            "email": "wisnugrohosatrio@gmail.com",
-            "store_name": "Wisnu Cell",
-            "store_phone": "082138844644",
-            "store_type": "TOKO PULSA",
-            "street": "Tampomas Sleman",
-            "province": "BALI",
-            "district": "BADUNG",
-            "city": "KUTA SELATAN",
-            "village": "KUTUH",
-            "zip_code": "123456",
-            "store_street": "Tampomas Sleman",
-            "store_province": "BALI",
-            "store_district": "BADUNG",
-            "store_city": "KUTA SELATAN",
-            "store_village": "KUTUH",
-            "store_zip_code": "123456",
-            "latitude": "-7.77135075",
-            "longitude": "110.34580316",
-            "isShop": "0",
-            "id_image": "base64",
-            "store_image": "base64",
-            "selfie_image": "base64"
-        }
-
-+ Response 200 (application/json)
-
-        {
-            "code": 200,
-            "status": true,
-            "message": "Udpated Successfully.",
-            "data": {}
-        }
-
-### Pin [GET /user/pin]
-status: todo
-
-+ Response 200 (application/json)
-
-### List Messages [GET /user/messages]
-status: todo
-
-+ Response 200 (application/json)
-
-### Update App Version [PUT /user/app-version]
-status: todo
-
-+ Response 200 (application/json)
-
-### Loan Activity [POST /user/loan-activity]
-status: todo
-
-+ Response 200 (application/json)
-
-
-### Balances [GET /user/balances]
-status: todo
-
-+ Response 200 (application/json)
-
-## Order [/orders]
-
-### List Orders [GET /]
-status: todo
-
-+ Response 200 (application/json)
 
 ## Location [/location]
 
@@ -348,6 +230,2574 @@ status: todo
                     "name": "BANJAR"
                 }
             ]
+        }
+
+## Mobile [/mobile]
+
+### Check Version [POST /mobile/check-version]
+
++ Request (application/json)
+
+        {
+            "device_version": "1.0"
+        }
+
++ Response 200 (application/json)
+
+        {
+            "code": 200,
+            "status": true,
+            "message": "Aplikasi versi 1.0 sudah nggak mendukung usahamu lagi. Segera update aplikasimu sekarang!",
+            "data": {
+                "current_version": "7.0",
+                "url": "http://refro.kioson.biz/ipayrefroserver/IPAY_ReFro.apk.rar"
+            }
+        }
+
+### Slider [GET /mobile/slider]
+
++ Response 200 (application/json)
+
+        {
+            "code": 200,
+            "status": true,
+            "message": "Success",
+            "data": [
+                {
+                    "id": 1,
+                    "title": "Mulai Berdagang Online",
+                    "description": "Kioson memudahkan kamu untuk menjual beragam produk online, pulsa, hingga pembayaran tagihan",
+                    "image": "https://bridge.kioson.project.skyshi.com/images/banner1.png"
+                },
+                {
+                    "id": 2,
+                    "title": "Dapat Komisi & Bonus",
+                    "description": "Setiap transaksi yang kamu lakukan akan mendapatkan komisi dan bonus hingga jutaan rupiah",
+                    "image": "https://bridge.kioson.project.skyshi.com/images/banner2.png"
+                },
+                {
+                    "id": 3,
+                    "title": "Fitur Produk Lengkap",
+                    "description": "Sekarang transfer uang kemana pun dan kapan pun labih mudah dengan aplikasi Kioson terbaru",
+                    "image": "https://bridge.kioson.project.skyshi.com/images/banner3.png"
+                }
+            ]
+        }
+
+### Home Banner [GET /mobile/home-banner]
+
++ Response 200 (text/html)
+
+### Gate Screen [GET /mobile/gate-screen]
+
++ Response 200 (application/json)
+
+        {
+            "code": 200,
+            "status": true,
+            "message": "Success",
+            "data": {
+                "title": "Bergabung dengan Kioson",
+                "description": "Kioson memudahkan kamu untuk menjual beragam produk online pulsa hingga pembayaran tagihan.",
+                "image": "https://bridge.kioson.project.skyshi.com/images/banner1.png"
+            }
+        }
+
+### Technical Help [GET /mobile/technical-help]
+status: todo
+
++ Response 200 (application/json)
+
+### Configuration [GET /mobile/configuration]
+status: todo
+
++ Response 200 (application/json)
+
+## OTP [/otp]
+
+### Resend OTP [POST /otp/send]
+
++ Request (application/json)
+
+        {
+            "username": "082123456789"
+        }
+
++ Response 200 (application/json)
+
+        {
+            "code": 200,
+            "status": true,
+            "message": "OTP will sent to your register mobile number",
+            "data": {}
+        }
+
+## Preset [/presets]
+
+### Store Types [GET /presets/store-types]
+
++ Response 200 (application/json)
+
+        {
+            "code": 200,
+            "status": true,
+            "message": "Success",
+            "data": [
+                {
+                    "id": "TOKO KELONTONG",
+                    "name": "TOKO KELONTONG"
+                },
+                {
+                    "id": "TOKO PULSA",
+                    "name": "TOKO PULSA"
+                },
+                {
+                    "id": "TOKO SERBA ADA",
+                    "name": "TOKO SERBA ADA"
+                },
+                {
+                    "id": "LOKET PEMBAYARAN",
+                    "name": "LOKET PEMBAYARAN"
+                },
+                {
+                    "id": "WARUNG KELONTONG",
+                    "name": "WARUNG KELONTONG"
+                },
+                {
+                    "id": "TOKO ELEKTRONIK",
+                    "name": "TOKO ELEKTRONIK"
+                },
+                {
+                    "id": "BIRO TRAVEL",
+                    "name": "BIRO TRAVEL"
+                },
+                {
+                    "id": "WARNET",
+                    "name": "WARNET"
+                },
+                {
+                    "id": "RESTORAN",
+                    "name": "RESTORAN"
+                },
+                {
+                    "id": "TOKO FASHION",
+                    "name": "TOKO FASHION"
+                },
+                {
+                    "id": "TOKO/BENGKEL OTOMATIF",
+                    "name": "TOKO/BENGKEL OTOMATIF"
+                },
+                {
+                    "id": "DEALER MOBILE/MOTOR",
+                    "name": "DEALER MOBILE/MOTOR"
+                },
+                {
+                    "id": "SHOWROOM MOBIL/MOTOR",
+                    "name": "SHOWROOM MOBIL/MOTOR"
+                },
+                {
+                    "id": "LAUNDRY",
+                    "name": "LAUNDRY"
+                },
+                {
+                    "id": "LAIN-LAIN",
+                    "name": "LAIN-LAIN"
+                }
+            ]
+        }
+
+### Work Types [GET /presets/work-types]
+
++ Response 200 (application/json)
+
+        {
+            "code": 200,
+            "status": true,
+            "message": "Success",
+            "data": [
+                {
+                    "id": "DRIVER UBER",
+                    "name": "DRIVER UBER"
+                },
+                {
+                    "id": "KARYAWAN SWASTA",
+                    "name": "KARYAWAN SWASTA"
+                },
+                {
+                    "id": "PELAJAR/MAHASISWA",
+                    "name": "PELAJAR/MAHASISWA"
+                },
+                {
+                    "id": "PNS",
+                    "name": "PNS"
+                },
+                {
+                    "id": "MAHASISWA",
+                    "name": "MAHASISWA"
+                },
+                {
+                    "id": "IBU RUMAH TANGGA",
+                    "name": "IBU RUMAH TANGGA"
+                },
+                {
+                    "id": "PEKERJA LEPAS",
+                    "name": "PEKERJA LEPAS"
+                },
+                {
+                    "id": "SUPIR MOBIL/DRIVER ONLINE",
+                    "name": "SUPIR MOBIL/DRIVER ONLINE"
+                },
+                {
+                    "id": "OJEK ONLINE",
+                    "name": "OJEK ONLINE"
+                },
+                {
+                    "id": "AGEN ASURANSI/MLM",
+                    "name": "AGEN ASURANSI/MLM"
+                },
+                {
+                    "id": "LEADER KOMUNITAS",
+                    "name": "LEADER KOMUNITAS"
+                }
+            ]
+        }
+
+## Service - Chip [/services/chip]
+
+### Preset [GET /presets/chip]
+
++ Response 200 (application/json)
+
+        {
+            "code": 200,
+            "status": true,
+            "message": "Success",
+            "data": [
+                {
+                    "operator": "XL",
+                    "id": 1023,
+                    "service_products": [
+                        {
+                            "amount": 5000,
+                            "operator": "XL",
+                            "description": "XL DOMPUL 5.000 MALANG,JEMBER",
+                            "id": 1022,
+                            "commission": 1500
+                        },
+                        {
+                            "amount": 10000,
+                            "operator": "XL",
+                            "description": "XL DOMPUL 10.000 MALANG,JEMBER",
+                            "id": 1023,
+                            "commission": 0
+                        },
+                        {
+                            "amount": 0,
+                            "operator": "XL",
+                            "description": "XL SALDO MALANG,JEMBER",
+                            "id": 1024,
+                            "commission": 0
+                        },
+                        {
+                            "amount": 5000,
+                            "operator": "XL",
+                            "description": "XL DOMPUL 5.000 BANDUNG",
+                            "id": 1030,
+                            "commission": 1500
+                        },
+                        {
+                            "amount": 10000,
+                            "operator": "XL",
+                            "description": "XL DOMPUL 10.000 BANDUNG",
+                            "id": 1031,
+                            "commission": 250
+                        },
+                        {
+                            "amount": 0,
+                            "operator": "XL",
+                            "description": "XL SALDO BANDUNG",
+                            "id": 1032,
+                            "commission": 1500
+                        }
+                    ]
+                }
+            ]
+        }
+
+### Confirmation [POST /services/chip/confirmation]
+
++ Request (application/json)
+
+        {
+            "service_product_id": 1022,
+            "qty": 4,
+            "amount": 0
+        }
+
++ Response 200 (application/json)
+
+        {
+            "code": 200,
+            "status": true,
+            "message": "Success",
+            "data": {
+                "discount": 0,
+                "charge": 0,
+                "actual_amount": 5000,
+                "total_amount": 20000
+            }
+        }
+
+### Order [POST /services/chip/order]
+
++ Request (application/json)
+
+        {
+            "pin": "1234567",
+            "phone_number": "081937260311",
+            "service_product_id": 1022,
+            "qty": 4,
+            "amount": 0,
+            "coupon_code": ""
+        }
+
++ Response 200 (application/json)
+
+        {
+            "code": 200,
+            "status": false,
+            "message": "APX10014 : System Error.Silahkan Dicoba Kembali",
+            "data": {}
+        }
+
+## Service - Game [/services/game]
+
+### Preset Voucher Game [GET /presets/game]
+
++ Response 200 (application/json)
+
+        {
+            "code": 200,
+            "status": true,
+            "message": "Success",
+            "data": [
+                {
+                    "operator": "AERIA_POINTS",
+                    "id": 597
+                },
+                {
+                    "operator": "ASIASOFT_SEA",
+                    "id": 572
+                },
+                {
+                    "operator": "AYM-V10",
+                    "id": 719
+                },
+                {
+                    "operator": "AYT-V10",
+                    "id": 718
+                },
+                {
+                    "operator": "BATTLENET",
+                    "id": 626
+                },
+                {
+                    "operator": "CHERRY_CREDITS",
+                    "id": 557
+                },
+                {
+                    "operator": "CUBICARD",
+                    "id": 619
+                },
+                {
+                    "operator": "DIGICASH",
+                    "id": 532
+                },
+                {
+                    "operator": "E_GAMES_HUB",
+                    "id": 579
+                },
+                {
+                    "operator": "FUNNEL_ASIA",
+                    "id": 576
+                },
+                {
+                    "operator": "GAME",
+                    "id": 504
+                },
+                {
+                    "operator": "GAMEVIEW",
+                    "id": 584
+                },
+                {
+                    "operator": "GARENA_ONLINE",
+                    "id": 536
+                },
+                {
+                    "operator": "GEMSCOOL",
+                    "id": 512
+                },
+                {
+                    "operator": "LYTO/GAME_ON",
+                    "id": 548
+                },
+                {
+                    "operator": "MEGAXUS",
+                    "id": 518
+                },
+                {
+                    "operator": "MMOG_ASIA",
+                    "id": 590
+                },
+                {
+                    "operator": "MOLPOINTS",
+                    "id": 554
+                },
+                {
+                    "operator": "OLLEH4U",
+                    "id": 720
+                },
+                {
+                    "operator": "ORANGEGAME",
+                    "id": 527
+                },
+                {
+                    "operator": "PLAYSTATION_PLUS_(ID)",
+                    "id": 623
+                },
+                {
+                    "operator": "PSN_MONEY_VOUCHER_(ID)",
+                    "id": 621
+                },
+                {
+                    "operator": "QEON_INTERACTIVE",
+                    "id": 543
+                },
+                {
+                    "operator": "QEON_INTERACTIVE1",
+                    "id": 722
+                },
+                {
+                    "operator": "RIXTYCODE",
+                    "id": 603
+                },
+                {
+                    "operator": "STEAM_WALLET_CODE_(IDR)",
+                    "id": 611
+                },
+                {
+                    "operator": "STEAM_WALLET_CODE_(USD)",
+                    "id": 614
+                },
+                {
+                    "operator": "TV1-V0",
+                    "id": 717
+                },
+                {
+                    "operator": "VIWAWA",
+                    "id": 569
+                },
+                {
+                    "operator": "WAVEGAME/WAVEPOINTS",
+                    "id": 523
+                },
+                {
+                    "operator": "XIXIGAMES",
+                    "id": 564
+                }
+            ]
+        }
+
+### Preset Voucher Game Service [GET /presets/game/{service_id}/service-products]
+
++ Parameters
+    + service_id: 597 (number, required)
+
++ Response 200 (application/json)
+
+        {
+            "code": 200,
+            "status": true,
+            "message": "Success",
+            "data": [
+                {
+                    "amount": 65500,
+                    "operator": "Aeria_Points",
+                    "description": "Aeria 510 Points",
+                    "id": 591,
+                    "commission": 0
+                },
+                {
+                    "amount": 130500,
+                    "operator": "Aeria_Points",
+                    "description": "Aeria 1040 Points",
+                    "id": 592,
+                    "commission": 0
+                },
+                {
+                    "amount": 260500,
+                    "operator": "Aeria_Points",
+                    "description": "Aeria 2120 Points",
+                    "id": 593,
+                    "commission": 0
+                },
+                {
+                    "amount": 386000,
+                    "operator": "Aeria_Points",
+                    "description": "Aeria 3240 Points",
+                    "id": 594,
+                    "commission": 0
+                },
+                {
+                    "amount": 651500,
+                    "operator": "Aeria_Points",
+                    "description": "Aeria 5500 Points",
+                    "id": 595,
+                    "commission": 0
+                },
+                {
+                    "amount": 964500,
+                    "operator": "Aeria_Points",
+                    "description": "Aeria 8550 Points",
+                    "id": 596,
+                    "commission": 0
+                },
+                {
+                    "amount": 1281500,
+                    "operator": "Aeria_Points",
+                    "description": "Aeria 11600 Points",
+                    "id": 597,
+                    "commission": 0
+                }
+            ]
+        }
+
+### Confirmation [POST /services/game/confirmation]
+
++ Request (application/json)
+
+        {
+            "service_product_id": 591
+        }
+
++ Response 200 (application/json)
+
+        {
+            "code": 200,
+            "status": true,
+            "message": "Success",
+            "data": {
+                "charge": 4800,
+                "actual_amount": 65500,
+                "total_amount": 70300
+            }
+        }
+
+### Order [POST /services/game/order]
+
++ Request (application/json)
+
+        {
+            "service_product_id": 591
+        }
+
++ Response 200 (application/json)
+
+        {
+            "code": 200,
+            "status": false,
+            "message": "Permintaan Anda untuk Pembelian Vocher Game atas ID Order 111B4JCQ senilai Rp. 65.500 telah gagal diproses.",
+            "data": {}
+        }
+
+## Service - Money [/services/money]
+
+### Preset [GET /presets/money]
+
++ Response 200 (application/json)
+
+        {
+            "code": 200,
+            "status": true,
+            "message": "Success",
+            "data": [
+                {
+                    "operator": "BANK AGRIS",
+                    "id": 714
+                },
+                {
+                    "operator": "BANK AGRO",
+                    "id": 699
+                },
+                {
+                    "operator": "BANK ANK",
+                    "id": 636
+                },
+                {
+                    "operator": "BANK ANTARDAERAH",
+                    "id": 652
+                },
+                {
+                    "operator": "BANK ANZ",
+                    "id": 649
+                },
+                {
+                    "operator": "BANK ANZ-RBS",
+                    "id": 647
+                },
+                {
+                    "operator": "BANK ARTHA GRAHA",
+                    "id": 642
+                },
+                {
+                    "operator": "BANK ARTOS",
+                    "id": 707
+                },
+                {
+                    "operator": "BANK BCA SYARIAH",
+                    "id": 706
+                },
+                {
+                    "operator": "BANK BENGKULU",
+                    "id": 679
+                },
+                {
+                    "operator": "BANK BII",
+                    "id": 634
+                },
+                {
+                    "operator": "BANK BKE",
+                    "id": 705
+                },
+                {
+                    "operator": "BANK BNI",
+                    "id": 630
+                },
+                {
+                    "operator": "BANK BRI",
+                    "id": 627
+                },
+                {
+                    "operator": "BANK BRI SYARIAH",
+                    "id": 692
+                },
+                {
+                    "operator": "BANK BTN",
+                    "id": 689
+                },
+                {
+                    "operator": "BANK BTPN",
+                    "id": 691
+                },
+                {
+                    "operator": "BANK BUKOPIN",
+                    "id": 694
+                },
+                {
+                    "operator": "BANK BUMI ARTA",
+                    "id": 650
+                },
+                {
+                    "operator": "BANK BUMIPUTERA",
+                    "id": 698
+                },
+                {
+                    "operator": "BANK CAPITAL",
+                    "id": 648
+                },
+                {
+                    "operator": "BANK CENTRAL ASIA",
+                    "id": 633
+                },
+                {
+                    "operator": "BANK CHINATRUST INDONESIA",
+                    "id": 715
+                },
+                {
+                    "operator": "BANK CIMB NIAGA",
+                    "id": 637
+                },
+                {
+                    "operator": "BANK CITIBANK",
+                    "id": 640
+                },
+                {
+                    "operator": "BANK COMMONWEALTH",
+                    "id": 716
+                },
+                {
+                    "operator": "BANK DANAMON",
+                    "id": 631
+                },
+                {
+                    "operator": "BANK DBS",
+                    "id": 645
+                },
+                {
+                    "operator": "BANK DKI",
+                    "id": 657
+                },
+                {
+                    "operator": "BANK EKONOMI RAHARJA",
+                    "id": 651
+                },
+                {
+                    "operator": "BANK GANESHA",
+                    "id": 687
+                },
+                {
+                    "operator": "BANK HANA",
+                    "id": 697
+                },
+                {
+                    "operator": "BANK HSBC",
+                    "id": 643
+                },
+                {
+                    "operator": "BANK INA",
+                    "id": 703
+                },
+                {
+                    "operator": "BANK INDEX",
+                    "id": 709
+                },
+                {
+                    "operator": "BANK JABAR",
+                    "id": 656
+                },
+                {
+                    "operator": "BANK JASA JAKARTA",
+                    "id": 696
+                },
+                {
+                    "operator": "BANK JATENG",
+                    "id": 659
+                },
+                {
+                    "operator": "BANK JATIM",
+                    "id": 660
+                },
+                {
+                    "operator": "BANK JTRUST INDONESIA",
+                    "id": 654
+                },
+                {
+                    "operator": "BANK KESAWAN",
+                    "id": 688
+                },
+                {
+                    "operator": "BANK LAMPUNG",
+                    "id": 667
+                },
+                {
+                    "operator": "BANK MALUKU",
+                    "id": 677
+                },
+                {
+                    "operator": "BANK MANDIRI",
+                    "id": 629
+                },
+                {
+                    "operator": "BANK MASPION",
+                    "id": 686
+                },
+                {
+                    "operator": "BANK MAYAPADA",
+                    "id": 655
+                },
+                {
+                    "operator": "BANK MAYORA",
+                    "id": 708
+                },
+                {
+                    "operator": "BANK MEGA",
+                    "id": 693
+                },
+                {
+                    "operator": "BANK MEGA SYARIAH",
+                    "id": 702
+                },
+                {
+                    "operator": "BANK MESTIKA",
+                    "id": 684
+                },
+                {
+                    "operator": "BANK MUAMALAT",
+                    "id": 683
+                },
+                {
+                    "operator": "BANK NAGARI",
+                    "id": 664
+                },
+                {
+                    "operator": "BANK NTT",
+                    "id": 676
+                },
+                {
+                    "operator": "BANK OCBC NISP",
+                    "id": 639
+                },
+                {
+                    "operator": "BANK PANIN",
+                    "id": 635
+                },
+                {
+                    "operator": "BANK PERMATA",
+                    "id": 632
+                },
+                {
+                    "operator": "BANK PUNDI",
+                    "id": 710
+                },
+                {
+                    "operator": "BANK RABOBANK",
+                    "id": 653
+                },
+                {
+                    "operator": "BANK RIAU",
+                    "id": 665
+                },
+                {
+                    "operator": "BANK ROYAL",
+                    "id": 701
+                },
+                {
+                    "operator": "BANK SAHABAT SAMPOERNA",
+                    "id": 704
+                },
+                {
+                    "operator": "BANK SAUDARA",
+                    "id": 690
+                },
+                {
+                    "operator": "BANK SBI INDONESIA (INDOMONEX)",
+                    "id": 700
+                },
+                {
+                    "operator": "BANK SINARMAS",
+                    "id": 685
+                },
+                {
+                    "operator": "BANK STANDARD CHARTERED",
+                    "id": 646
+                },
+                {
+                    "operator": "BANK SULTENG",
+                    "id": 680
+                },
+                {
+                    "operator": "BANK SUMSEL BABEL",
+                    "id": 666
+                },
+                {
+                    "operator": "BANK SUMUT",
+                    "id": 663
+                },
+                {
+                    "operator": "BANK SWADESI",
+                    "id": 682
+                },
+                {
+                    "operator": "BANK SYARIAH MANDIRI",
+                    "id": 695
+                },
+                {
+                    "operator": "BANK UOB BUANA",
+                    "id": 638
+                },
+                {
+                    "operator": "BANK VICTORIA INTERNATIONAL",
+                    "id": 711
+                },
+                {
+                    "operator": "BANK WINDU KENTJANA INTERNATIONAL",
+                    "id": 641
+                },
+                {
+                    "operator": "BPD ACEH",
+                    "id": 662
+                },
+                {
+                    "operator": "BPD BALI",
+                    "id": 675
+                },
+                {
+                    "operator": "BPD DIY",
+                    "id": 658
+                },
+                {
+                    "operator": "BPD JATIM",
+                    "id": 661
+                },
+                {
+                    "operator": "BPD KALBAR",
+                    "id": 669
+                },
+                {
+                    "operator": "BPD KALSEL",
+                    "id": 668
+                },
+                {
+                    "operator": "BPD KALTENG",
+                    "id": 671
+                },
+                {
+                    "operator": "BPD KALTIM",
+                    "id": 670
+                },
+                {
+                    "operator": "BPD NTB",
+                    "id": 674
+                },
+                {
+                    "operator": "BPD PAPUA",
+                    "id": 678
+                },
+                {
+                    "operator": "BPD SULSEL",
+                    "id": 672
+                },
+                {
+                    "operator": "BPD SULTRA",
+                    "id": 681
+                },
+                {
+                    "operator": "BPD SULUT",
+                    "id": 673
+                },
+                {
+                    "operator": "BPR KS",
+                    "id": 712
+                },
+                {
+                    "operator": "TCASH",
+                    "id": 713
+                },
+                {
+                    "operator": "THE BANK OF TOKYO-MITSUBISHI UFJ",
+                    "id": 644
+                }
+            ]
+        }
+
+### Confirmation [POST /services/money/confirmation]
+
++ Request (application/json)
+
+        {
+            "service_product_id": 637,
+            "holder_account_number": "89789712398",
+            "holder_name": "Satrio Wisnugroho",
+            "phone_number": "082138844643",
+            "sender_name": "Bangkit Lah",
+            "amount": 500000
+        }
+
++ Response 200 (application/json)
+
+        {
+            "code": 200,
+            "status": true,
+            "message": "Success",
+            "data": {
+                "order_id": null,
+                "order_at": 1513571872,
+                "destination_bank": "BANK CIMB NIAGA",
+                "holder_account_number": "89789712398",
+                "holder_name": "Satrio Wisnugroho",
+                "amount": 500000,
+                "sender_name": "Bangkit Lah",
+                "phone_number": "082138844643",
+                "charge": 1000,
+                "actual_amount": 500000,
+                "total_amount": 501000
+            }
+        }
+
+### Order [POST /services/money/order]
+
++ Request (application/json)
+
+        {
+            "pin": "1234567",
+            "service_product_id": 637,
+            "holder_account_number": "555010",
+            "holder_name": "Satrio Wisnugroho",
+            "phone_number": "082138844643",
+            "sender_name": "Bangkit Lah",
+            "amount": 500000,
+            "coupon_code": ""
+        }
+
++ Response 200 (application/json)
+
+        {
+            "code": 200,
+            "status": true,
+            "message": "Success",
+            "data": {
+                "service_product": "Transfer Uang - 500000",
+                "destination_account": "BANK CIMB NIAGA 555010",
+                "order_id": null,
+                "amount": null
+            }
+        }
+
+## Service - Phone [/services/phone]
+
+### Confirmation [POST /services/phone/confirmation]
+
++ Request (application/json)
+
+        {
+            "phone_number": "082138844644",
+            "customer_id": "02175888901"
+        }
+
++ Response 200 (application/json)
+
+        {
+            "code": 200,
+            "status": true,
+            "message": "Success",
+            "data": {
+                "customer_id": "02175888901",
+                "customer_name": "LINA SIREGAR",
+                "customer_phone": "082138844644",
+                "due_date": null,
+                "charge": 2500,
+                "actual_amount": 137580,
+                "total_amount": 140080
+            }
+        }
+
+### Order [POST /services/phone/order]
+
++ Request (application/json)
+
+        {
+            "pin": "1234567",
+            "phone_number": "082138844643",
+            "coupon_code": "",
+            "customer_id": "02175888901"
+        }
+
++ Response 200 (application/json)
+
+        {
+            "code": 200,
+            "status": true,
+            "message": "Success",
+            "data": {
+                "service_product": "Telkom - Desember 2018",
+                "customer_id": "02175888901",
+                "order_id": "111BMJCQ",
+                "amount": 140080,
+                "payment_code": "18156631"
+            }
+        }
+
+## Service - Power [/services/power]
+
+### Preset Prepaid [GET /presets/power?customer_id={customer_id}]
+
++ Parameters
+    + customer_id: 01100662194 (number, required)
+
++ Response 200 (application/json)
+
+        {
+            "code": 200,
+            "status": true,
+            "message": "Success",
+            "data": [
+                {
+                    "description": "PLN Prepaid 20.000",
+                    "amount": 20000
+                },
+                {
+                    "description": "PLN Prepaid 30.000",
+                    "amount": 30000
+                },
+                {
+                    "description": "PLN Prepaid 50.000",
+                    "amount": 50000
+                },
+                {
+                    "description": "PLN Prepaid 100.000",
+                    "amount": 100000
+                },
+                {
+                    "description": "PLN Prepaid 200.000",
+                    "amount": 200000
+                },
+                {
+                    "description": "PLN Prepaid 500.000",
+                    "amount": 500000
+                },
+                {
+                    "description": "PLN Prepaid 1.000.000",
+                    "amount": 1000000
+                }
+            ]
+        }
+
+### Prepaid Order [POST /services/power/prepaid/order]
+
++ Request (application/json)
+
+        {
+            "pin": "1234567",
+            "customer_id": "01100662194",
+            "phone_number": "082138844643",
+            "amount": 30000,
+            "coupon_code": ""
+        }
+
++ Response 200 (application/json)
+
+        {
+            "code": 200,
+            "status": true,
+            "message": "Success",
+            "data": {
+                "service_product": "Listrik PLN Prabayar 30.000",
+                "customer_id": "01100662194",
+                "order_id": "111BEJCQ",
+                "amount": 32500
+            }
+        }
+
+### Postpaid Confirmation [POST /services/power/postpaid/confirmation]
+
++ Request (application/json)
+
+        {
+            "customer_id": "9032427221"
+        }
+
++ Response 200 (application/json)
+
+        {
+            "code": 200,
+            "status": true,
+            "message": "Success",
+            "data": {
+                "customer_id": "9032427221",
+                "customer_name": "R SUMALI2",
+                "due_date": 1513530000,
+                "charge": 2500,
+                "actual_amount": 887849,
+                "total_amount": 890349
+            }
+        }
+
+### Postpaid Order [POST /services/power/postpaid/order]
+
++ Request (application/json)
+
+        {
+            "pin": "1234567",
+            "customer_id": "9032427221",
+            "phone_number": "082138844644",
+            "coupon_code": ""
+        }
+
++ Response 200 (application/json)
+
+        {
+            "code": 200,
+            "status": true,
+            "message": "Success",
+            "data": {
+                "service_product": "Listrik PLN Pascabayar",
+                "customer_id": "9032427221",
+                "order_id": "111BGJCQ",
+                "amount": 890349
+            }
+        }
+
+## Service - Recharge [/services/recharge]
+
+### Preset Recharge Mobile [GET /presets/recharge/mobile]
+
++ Response 200 (application/json)
+
+        {
+            "code": 200,
+            "status": true,
+            "message": "Success",
+            "data": [
+                {
+                    "operator": "BOLT",
+                    "id": 965,
+                    "service_products": [
+                        {
+                            "amount": 25000,
+                            "operator": "BOLT",
+                            "description": "BOLT 25.000 MRBT25",
+                            "id": 961,
+                            "commission": 600
+                        },
+                        {
+                            "amount": 50000,
+                            "operator": "BOLT",
+                            "description": "BOLT 50.000 MRBT50",
+                            "id": 962,
+                            "commission": 1200
+                        },
+                        {
+                            "amount": 100000,
+                            "operator": "BOLT",
+                            "description": "BOLT 100.000 MRBT100",
+                            "id": 963,
+                            "commission": 2450
+                        },
+                        {
+                            "amount": 150000,
+                            "operator": "BOLT",
+                            "description": "BOLT 150.000 MRBT150",
+                            "id": 964,
+                            "commission": 3700
+                        },
+                        {
+                            "amount": 200000,
+                            "operator": "BOLT",
+                            "description": "BOLT 200.000 MRBT200",
+                            "id": 965,
+                            "commission": 4500
+                        }
+                    ]
+                },
+                {
+                    "operator": "INDOSAT",
+                    "id": 976,
+                    "service_products": [
+                        {
+                            "amount": 6000,
+                            "operator": "INDOSAT",
+                            "description": "INDOSAT 5.000 MRIS5",
+                            "id": 966,
+                            "commission": 300
+                        },
+                        {
+                            "amount": 12000,
+                            "operator": "INDOSAT",
+                            "description": "INDOSAT 10.000 MRIS10",
+                            "id": 967,
+                            "commission": 1300
+                        },
+                        {
+                            "amount": 20000,
+                            "operator": "INDOSAT",
+                            "description": "INDOSAT 20.000 MRIS20",
+                            "id": 968,
+                            "commission": 75
+                        },
+                        {
+                            "amount": 26000,
+                            "operator": "INDOSAT",
+                            "description": "INDOSAT 25.000 MRIS25",
+                            "id": 969,
+                            "commission": 1125
+                        },
+                        {
+                            "amount": 30000,
+                            "operator": "INDOSAT",
+                            "description": "INDOSAT 30.000 MRIS30",
+                            "id": 970,
+                            "commission": 125
+                        },
+                        {
+                            "amount": 50000,
+                            "operator": "INDOSAT",
+                            "description": "INDOSAT 50.000 MRIS50",
+                            "id": 971,
+                            "commission": 975
+                        },
+                        {
+                            "amount": 100000,
+                            "operator": "INDOSAT",
+                            "description": "INDOSAT 10.0000 MRIS100",
+                            "id": 972,
+                            "commission": 2975
+                        },
+                        {
+                            "amount": 150000,
+                            "operator": "INDOSAT",
+                            "description": "INDOSAT 150.000 MRIS150",
+                            "id": 973,
+                            "commission": 5350
+                        },
+                        {
+                            "amount": 250000,
+                            "operator": "INDOSAT",
+                            "description": "INDOSAT 250.000 MRIS250",
+                            "id": 974,
+                            "commission": 12700
+                        },
+                        {
+                            "amount": 500000,
+                            "operator": "INDOSAT",
+                            "description": "INDOSAT 500.000 MRIS500",
+                            "id": 975,
+                            "commission": 25000
+                        },
+                        {
+                            "amount": 1000000,
+                            "operator": "INDOSAT",
+                            "description": "INDOSAT 1.000.000 MRIS1000",
+                            "id": 976,
+                            "commission": 25000
+                        }
+                    ]
+                },
+                {
+                    "operator": "SMARTFREN",
+                    "id": 987,
+                    "service_products": [
+                        {
+                            "amount": 6000,
+                            "operator": "SMARTFREN",
+                            "description": "SMARTFREN 5.000 MRSM5",
+                            "id": 977,
+                            "commission": 850
+                        },
+                        {
+                            "amount": 12000,
+                            "operator": "SMARTFREN",
+                            "description": "SMARTFREN 20.000 MRSM20",
+                            "id": 979,
+                            "commission": 1950
+                        },
+                        {
+                            "amount": 21500,
+                            "operator": "SMARTFREN",
+                            "description": "SMARTFREN 25.000",
+                            "id": 980,
+                            "commission": 1600
+                        },
+                        {
+                            "amount": 50000,
+                            "operator": "SMARTFREN",
+                            "description": "SMARTFREN 50.000",
+                            "id": 981,
+                            "commission": 500
+                        },
+                        {
+                            "amount": 51000,
+                            "operator": "SMARTFREN",
+                            "description": "SMARTFREN 60.000",
+                            "id": 982,
+                            "commission": 700
+                        },
+                        {
+                            "amount": 61000,
+                            "operator": "SMARTFREN",
+                            "description": "SMARTFREN 100.000",
+                            "id": 983,
+                            "commission": 1300
+                        },
+                        {
+                            "amount": 100000,
+                            "operator": "SMARTFREN",
+                            "description": "SMARTFREN 150.000",
+                            "id": 984,
+                            "commission": 1500
+                        },
+                        {
+                            "amount": 150000,
+                            "operator": "SMARTFREN",
+                            "description": "SMARTFREN 200.000",
+                            "id": 985,
+                            "commission": 2000
+                        },
+                        {
+                            "amount": 200000,
+                            "operator": "SMARTFREN",
+                            "description": "SMARTFREN 300.000",
+                            "id": 986,
+                            "commission": 2000
+                        },
+                        {
+                            "amount": 300000,
+                            "operator": "SMARTFREN",
+                            "description": "SMARTFREN 500.000",
+                            "id": 987,
+                            "commission": 4000
+                        }
+                    ]
+                },
+                {
+                    "operator": "TELKOMSEL",
+                    "id": 997,
+                    "service_products": [
+                        {
+                            "amount": 7000,
+                            "operator": "TELKOMSEL",
+                            "description": "TELKOMSEL PULSA REGULER 5.000",
+                            "id": 988,
+                            "commission": 1200
+                        },
+                        {
+                            "amount": 12000,
+                            "operator": "TELKOMSEL",
+                            "description": "TELKOMSEL PULSA REGULER 10.000",
+                            "id": 989,
+                            "commission": 1650
+                        },
+                        {
+                            "amount": 21500,
+                            "operator": "TELKOMSEL",
+                            "description": "TELKOMSEL PULSA REGULER 20.000",
+                            "id": 990,
+                            "commission": 1475
+                        },
+                        {
+                            "amount": 26000,
+                            "operator": "TELKOMSEL",
+                            "description": "TELKOMSEL PULSA REGULER 25.000",
+                            "id": 991,
+                            "commission": 975
+                        },
+                        {
+                            "amount": 40000,
+                            "operator": "TELKOMSEL",
+                            "description": "TELKOMSEL PULSA REGULER 40.000",
+                            "id": 1028,
+                            "commission": 0
+                        },
+                        {
+                            "amount": 50000,
+                            "operator": "TELKOMSEL",
+                            "description": "TELKOMSEL PULSA REGULER 50.000",
+                            "id": 992,
+                            "commission": 725
+                        },
+                        {
+                            "amount": 100000,
+                            "operator": "TELKOMSEL",
+                            "description": "TELKOMSEL PULSA REGULER 100.000",
+                            "id": 993,
+                            "commission": 2500
+                        },
+                        {
+                            "amount": 150000,
+                            "operator": "TELKOMSEL",
+                            "description": "TELKOMSEL PULSA REGULER 150.000",
+                            "id": 994,
+                            "commission": 5250
+                        },
+                        {
+                            "amount": 200000,
+                            "operator": "TELKOMSEL",
+                            "description": "TELKOMSEL PULSA REGULER 200.000",
+                            "id": 995,
+                            "commission": 7000
+                        },
+                        {
+                            "amount": 300000,
+                            "operator": "TELKOMSEL",
+                            "description": "TELKOMSEL PULSA REGULER 300.000",
+                            "id": 996,
+                            "commission": 10500
+                        },
+                        {
+                            "amount": 500000,
+                            "operator": "TELKOMSEL",
+                            "description": "TELKOMSEL PULSA REGULER 500.000",
+                            "id": 997,
+                            "commission": 17500
+                        }
+                    ]
+                },
+                {
+                    "operator": "THREE",
+                    "id": 1009,
+                    "service_products": [
+                        {
+                            "amount": 2000,
+                            "operator": "THREE",
+                            "description": "THREE 1.000",
+                            "id": 999,
+                            "commission": 990
+                        },
+                        {
+                            "amount": 6000,
+                            "operator": "THREE",
+                            "description": "THREE 10.000",
+                            "id": 1001,
+                            "commission": 1000
+                        },
+                        {
+                            "amount": 12000,
+                            "operator": "THREE",
+                            "description": "THREE 20.000",
+                            "id": 1002,
+                            "commission": 2000
+                        },
+                        {
+                            "amount": 15000,
+                            "operator": "THREE",
+                            "description": "THREE PAKET BICARA ANYNET 120 MNT",
+                            "id": 1011,
+                            "commission": 900
+                        },
+                        {
+                            "amount": 21500,
+                            "operator": "THREE",
+                            "description": "THREE 25.000",
+                            "id": 1003,
+                            "commission": 1650
+                        },
+                        {
+                            "amount": 30000,
+                            "operator": "THREE",
+                            "description": "THREE PAKET BICARA ANYNET 250 MNT",
+                            "id": 1012,
+                            "commission": 900
+                        },
+                        {
+                            "amount": 31500,
+                            "operator": "THREE",
+                            "description": "THREE 50.000",
+                            "id": 1004,
+                            "commission": 2000
+                        },
+                        {
+                            "amount": 50000,
+                            "operator": "THREE",
+                            "description": "THREE 100.000",
+                            "id": 1005,
+                            "commission": 750
+                        },
+                        {
+                            "amount": 100000,
+                            "operator": "THREE",
+                            "description": "THREE 150.000",
+                            "id": 1006,
+                            "commission": 1500
+                        },
+                        {
+                            "amount": 150000,
+                            "operator": "THREE",
+                            "description": "THREE 300.000",
+                            "id": 1007,
+                            "commission": 2000
+                        },
+                        {
+                            "amount": 300000,
+                            "operator": "THREE",
+                            "description": "THREE 500.000",
+                            "id": 1008,
+                            "commission": 4000
+                        },
+                        {
+                            "amount": 500000,
+                            "operator": "THREE",
+                            "description": "THREE 1.000.000",
+                            "id": 1009,
+                            "commission": 6500
+                        }
+                    ]
+                },
+                {
+                    "operator": "XL",
+                    "id": 1021,
+                    "service_products": [
+                        {
+                            "amount": 6000,
+                            "operator": "XL",
+                            "description": "XL / AXIS 5.000",
+                            "id": 1013,
+                            "commission": 350
+                        },
+                        {
+                            "amount": 12000,
+                            "operator": "XL",
+                            "description": "XL / AXIS 10.000",
+                            "id": 1014,
+                            "commission": 1350
+                        },
+                        {
+                            "amount": 26000,
+                            "operator": "XL",
+                            "description": "XL / AXIS 25.000",
+                            "id": 1015,
+                            "commission": 1600
+                        },
+                        {
+                            "amount": 50000,
+                            "operator": "XL",
+                            "description": "XL / AXIS 50.000",
+                            "id": 1016,
+                            "commission": 800
+                        },
+                        {
+                            "amount": 100000,
+                            "operator": "XL",
+                            "description": "XL / AXIS 100.000",
+                            "id": 1017,
+                            "commission": 1800
+                        },
+                        {
+                            "amount": 200000,
+                            "operator": "XL",
+                            "description": "XL / AXIS 200.000",
+                            "id": 1018,
+                            "commission": 3800
+                        },
+                        {
+                            "amount": 300000,
+                            "operator": "XL",
+                            "description": "XL / AXIS 300.000",
+                            "id": 1019,
+                            "commission": 7000
+                        },
+                        {
+                            "amount": 500000,
+                            "operator": "XL",
+                            "description": "XL / AXIS 500.000",
+                            "id": 1020,
+                            "commission": 11500
+                        },
+                        {
+                            "amount": 1000000,
+                            "operator": "XL",
+                            "description": "XL / AXIS 1.000.000",
+                            "id": 1021,
+                            "commission": 23500
+                        }
+                    ]
+                }
+            ]
+        }
+
+### Preset Recharge Mobile Data [GET /presets/recharge/mobile-data]
+
++ Response 200 (application/json)
+
+        {
+            "code": 200,
+            "status": true,
+            "message": "Success",
+            "data": [
+                {
+                    "operator": "BOLT",
+                    "id": 733,
+                    "service_products": [
+                        {
+                            "amount": 49000,
+                            "operator": "BOLT",
+                            "description": "BOLT KUOTA 3 GB",
+                            "id": 906,
+                            "commission": 900
+                        },
+                        {
+                            "amount": 149000,
+                            "operator": "BOLT",
+                            "description": "BOLT KUOTA 13 GB",
+                            "id": 733,
+                            "commission": 3675
+                        }
+                    ]
+                },
+                {
+                    "operator": "INDOSAT_DATA",
+                    "id": 750,
+                    "service_products": [
+                        {
+                            "amount": 35000,
+                            "operator": "INDOSAT_DATA",
+                            "description": "EXTRA QUOTA 2GB, FULL 24 JAM",
+                            "id": 735,
+                            "commission": 650
+                        },
+                        {
+                            "amount": 45000,
+                            "operator": "INDOSAT_DATA",
+                            "description": "INDOSAT DATA 4,5 GB / 30 DAYS",
+                            "id": 743,
+                            "commission": 4900
+                        },
+                        {
+                            "amount": 49000,
+                            "operator": "INDOSAT_DATA",
+                            "description": "INDOSAT DATA INTERNET STAND ALONE 1GB",
+                            "id": 955,
+                            "commission": 8650
+                        },
+                        {
+                            "amount": 55000,
+                            "operator": "INDOSAT_DATA",
+                            "description": "INDOSAT DATA SUPER INTERNET BULANAN 3.5GB",
+                            "id": 958,
+                            "commission": 4750
+                        },
+                        {
+                            "amount": 59000,
+                            "operator": "INDOSAT_DATA",
+                            "description": "INDOSAT DATA FREEDOM 1 +1 GB + 10 GB 4G ( M)",
+                            "id": 747,
+                            "commission": 8500
+                        },
+                        {
+                            "amount": 60000,
+                            "operator": "INDOSAT_DATA",
+                            "description": "INDOSAT DATA 3 GB / 30 DAYS",
+                            "id": 742,
+                            "commission": 7300
+                        },
+                        {
+                            "amount": 75000,
+                            "operator": "INDOSAT_DATA",
+                            "description": "EXTRA QUOTA 6GB, FULL 24 JAM",
+                            "id": 737,
+                            "commission": 7150
+                        },
+                        {
+                            "amount": 89000,
+                            "operator": "INDOSAT_DATA",
+                            "description": "INDOSAT DATA INTERNET STAND ALONE 3GB",
+                            "id": 956,
+                            "commission": 8650
+                        },
+                        {
+                            "amount": 90000,
+                            "operator": "INDOSAT_DATA",
+                            "description": "INDOSAT DATA 5 GB / 30 DAYS",
+                            "id": 744,
+                            "commission": 12400
+                        },
+                        {
+                            "amount": 99000,
+                            "operator": "INDOSAT_DATA",
+                            "description": "INDOSAT DATA FREEDOM 3 + 3 GB + 20 GB 4G ( L )",
+                            "id": 748,
+                            "commission": 14500
+                        },
+                        {
+                            "amount": 100000,
+                            "operator": "INDOSAT_DATA",
+                            "description": "INDOSAT BB90 HARI GAUL BANGET",
+                            "id": 739,
+                            "commission": 18750
+                        },
+                        {
+                            "amount": 105000,
+                            "operator": "INDOSAT_DATA",
+                            "description": "INDOSAT DATA SUPER INTERNET BULANAN 9.5GB",
+                            "id": 959,
+                            "commission": 4750
+                        },
+                        {
+                            "amount": 139000,
+                            "operator": "INDOSAT_DATA",
+                            "description": "IINDOSAT DATA INTERNET STAND ALONE 5GB",
+                            "id": 957,
+                            "commission": 8650
+                        },
+                        {
+                            "amount": 149000,
+                            "operator": "INDOSAT_DATA",
+                            "description": "INDOSAT DATA FREEDOM 4 + 4 GB + 30 GB 4G( XL )",
+                            "id": 749,
+                            "commission": 22000
+                        },
+                        {
+                            "amount": 199000,
+                            "operator": "INDOSAT_DATA",
+                            "description": "INDOSAT DATA FREEDOM 6 + 6 GB +  UNLIMITED 4G ( XXL )",
+                            "id": 750,
+                            "commission": 29500
+                        }
+                    ]
+                },
+                {
+                    "operator": "TELKOMSEL",
+                    "id": 1027,
+                    "service_products": [
+                        {
+                            "amount": 20000,
+                            "operator": "TELKOMSEL",
+                            "description": "TELKOMSEL PAKET DATA 20 RB",
+                            "id": 756,
+                            "commission": 50
+                        },
+                        {
+                            "amount": 25000,
+                            "operator": "TELKOMSEL",
+                            "description": "TELKOMSEL PAKET DATA 25 RB",
+                            "id": 757,
+                            "commission": 150
+                        },
+                        {
+                            "amount": 50000,
+                            "operator": "TELKOMSEL",
+                            "description": "TELKOMSEL PAKET DATA 50 RB",
+                            "id": 758,
+                            "commission": 1550
+                        },
+                        {
+                            "amount": 100000,
+                            "operator": "TELKOMSEL",
+                            "description": "TELKOMSEL PAKET DATA 100 RB",
+                            "id": 759,
+                            "commission": 5050
+                        },
+                        {
+                            "amount": 200000,
+                            "operator": "TELKOMSEL",
+                            "description": "TELKOMSEL PAKET DATA 200 RB",
+                            "id": 1026,
+                            "commission": 0
+                        },
+                        {
+                            "amount": 300000,
+                            "operator": "TELKOMSEL",
+                            "description": "TELKOMSEL PAKET DATA 300 RB",
+                            "id": 1027,
+                            "commission": 0
+                        }
+                    ]
+                },
+                {
+                    "operator": "THREE_DATA",
+                    "id": 767,
+                    "service_products": [
+                        {
+                            "amount": 2000,
+                            "operator": "THREE_DATA",
+                            "description": "THREE DATA 20 MB",
+                            "id": 768,
+                            "commission": 25
+                        },
+                        {
+                            "amount": 5000,
+                            "operator": "THREE_DATA",
+                            "description": "THREE DATA 80 MB",
+                            "id": 769,
+                            "commission": 50
+                        },
+                        {
+                            "amount": 6000,
+                            "operator": "THREE_DATA",
+                            "description": "THREE KUOTA 80 MB",
+                            "id": 776,
+                            "commission": 700
+                        },
+                        {
+                            "amount": 10000,
+                            "operator": "THREE_DATA",
+                            "description": "THREE DATA 300MB",
+                            "id": 770,
+                            "commission": 100
+                        },
+                        {
+                            "amount": 11000,
+                            "operator": "THREE_DATA",
+                            "description": "THREE KUOTA 300 MB",
+                            "id": 777,
+                            "commission": 750
+                        },
+                        {
+                            "amount": 18500,
+                            "operator": "THREE_DATA",
+                            "description": "THREE KUOTA 1GB, MASA AKTIF 1 TAHUN",
+                            "id": 780,
+                            "commission": 650
+                        },
+                        {
+                            "amount": 20000,
+                            "operator": "THREE_DATA",
+                            "description": "THREE DATA 650MB",
+                            "id": 771,
+                            "commission": 350
+                        },
+                        {
+                            "amount": 35000,
+                            "operator": "THREE_DATA",
+                            "description": "THREE KUOTA 2GB, MASA AKTIF 1 TAHUN",
+                            "id": 787,
+                            "commission": 1900
+                        },
+                        {
+                            "amount": 45000,
+                            "operator": "THREE_DATA",
+                            "description": "PAKET DATA 3GB + PULSA 10 RB",
+                            "id": 762,
+                            "commission": 5650
+                        },
+                        {
+                            "amount": 50000,
+                            "operator": "THREE_DATA",
+                            "description": "THREE KUOTA 2,25 GB",
+                            "id": 779,
+                            "commission": 1150
+                        },
+                        {
+                            "amount": 60000,
+                            "operator": "THREE_DATA",
+                            "description": "PAKET DATA 4GB + PULSA 10 RB",
+                            "id": 763,
+                            "commission": 8650
+                        },
+                        {
+                            "amount": 75000,
+                            "operator": "THREE_DATA",
+                            "description": "THREE KUOTA 5GB, MASA AKTIF 1 TAHUN",
+                            "id": 798,
+                            "commission": 4750
+                        },
+                        {
+                            "amount": 90000,
+                            "operator": "THREE_DATA",
+                            "description": "PAKET DATA 6GB + PULSA 20 RB",
+                            "id": 765,
+                            "commission": 16150
+                        },
+                        {
+                            "amount": 100000,
+                            "operator": "THREE_DATA",
+                            "description": "THREE DATA NETMAX KUOTA 8 GB",
+                            "id": 948,
+                            "commission": 1150
+                        },
+                        {
+                            "amount": 110000,
+                            "operator": "THREE_DATA",
+                            "description": "PAKET DATA 8GB + PULSA 20 RB",
+                            "id": 766,
+                            "commission": 11650
+                        },
+                        {
+                            "amount": 135000,
+                            "operator": "THREE_DATA",
+                            "description": "PAKET DATA 10GB + PULSA 20 RB",
+                            "id": 767,
+                            "commission": 16650
+                        }
+                    ]
+                },
+                {
+                    "operator": "XL_PAKET_DATA",
+                    "id": 831,
+                    "service_products": [
+                        {
+                            "amount": 7000,
+                            "operator": "XL_PAKET_DATA",
+                            "description": "HOTROD 24JAM RP6RB, 7HR, 50MB",
+                            "id": 833,
+                            "commission": 150
+                        },
+                        {
+                            "amount": 7900,
+                            "operator": "XL_PAKET_DATA",
+                            "description": "AXIS PAKET BRONET 300MB, 7HR, RP6900",
+                            "id": 851,
+                            "commission": 150
+                        },
+                        {
+                            "amount": 8900,
+                            "operator": "XL_PAKET_DATA",
+                            "description": "AXIS BB IRIT BASIC, 7HR, RP7900",
+                            "id": 814,
+                            "commission": 150
+                        },
+                        {
+                            "amount": 10800,
+                            "operator": "XL_PAKET_DATA",
+                            "description": "AXIS PAKET BRONET 24JAM 300MB, 7HR, RP9800",
+                            "id": 852,
+                            "commission": 150
+                        },
+                        {
+                            "amount": 10900,
+                            "operator": "XL_PAKET_DATA",
+                            "description": "AXIS INTERNET GAUL WEEKLY RP9900, 7HR, FUP 200MB",
+                            "id": 846,
+                            "commission": 150
+                        },
+                        {
+                            "amount": 12900,
+                            "operator": "XL_PAKET_DATA",
+                            "description": "AXIS BB IRIT FUN, 7HR, RP11900",
+                            "id": 816,
+                            "commission": 150
+                        },
+                        {
+                            "amount": 15000,
+                            "operator": "XL_PAKET_DATA",
+                            "description": "KAPAN AJA NELP 200MNT, 14HR, RP14RB",
+                            "id": 848,
+                            "commission": 150
+                        },
+                        {
+                            "amount": 15900,
+                            "operator": "XL_PAKET_DATA",
+                            "description": "AXIS PAKET BRONET 1GB, 30HR, RP14900",
+                            "id": 853,
+                            "commission": 150
+                        },
+                        {
+                            "amount": 18000,
+                            "operator": "XL_PAKET_DATA",
+                            "description": "BB GAUL (CHAT&SOCIAL) RP17RB, 7HR",
+                            "id": 809,
+                            "commission": 150
+                        },
+                        {
+                            "amount": 18900,
+                            "operator": "XL_PAKET_DATA",
+                            "description": "AXIS BB IRIT PRO, 7HR, RP17900",
+                            "id": 819,
+                            "commission": 150
+                        },
+                        {
+                            "amount": 19800,
+                            "operator": "XL_PAKET_DATA",
+                            "description": "AXIS PAKET BRONET 24JAM 1GB, 30HR, RP18800",
+                            "id": 854,
+                            "commission": 150
+                        },
+                        {
+                            "amount": 21000,
+                            "operator": "XL_PAKET_DATA",
+                            "description": "BB GAUL UNLI & PULSA RP20RB, 7HR",
+                            "id": 811,
+                            "commission": 150
+                        },
+                        {
+                            "amount": 24900,
+                            "operator": "XL_PAKET_DATA",
+                            "description": "AXIS PAKET BRONET 2GB, 60HR, RP24900",
+                            "id": 855,
+                            "commission": 1550
+                        },
+                        {
+                            "amount": 25000,
+                            "operator": "XL_PAKET_DATA",
+                            "description": "BB FULL BIS LITE RP25RB, 7HR",
+                            "id": 804,
+                            "commission": 150
+                        },
+                        {
+                            "amount": 29800,
+                            "operator": "XL_PAKET_DATA",
+                            "description": "AXIS PAKET BRONET 24JAM 2GB, 60HR, RP28800",
+                            "id": 856,
+                            "commission": 1650
+                        },
+                        {
+                            "amount": 29900,
+                            "operator": "XL_PAKET_DATA",
+                            "description": "AXIS BB IRIT BASIC, 30HR, RP29900",
+                            "id": 813,
+                            "commission": 2050
+                        },
+                        {
+                            "amount": 30000,
+                            "operator": "XL_PAKET_DATA",
+                            "description": "BB FULL BIS LITE UNLIMITED & PULSA RP30RB, 7HR",
+                            "id": 806,
+                            "commission": 150
+                        },
+                        {
+                            "amount": 31000,
+                            "operator": "XL_PAKET_DATA",
+                            "description": "HOTROD 24JAM RP30RB, 30HR, 800MB",
+                            "id": 834,
+                            "commission": 1400
+                        },
+                        {
+                            "amount": 34900,
+                            "operator": "XL_PAKET_DATA",
+                            "description": "AXIS PAKET BRONET 3GB, 60HR, RP34900",
+                            "id": 857,
+                            "commission": 2050
+                        },
+                        {
+                            "amount": 35000,
+                            "operator": "XL_PAKET_DATA",
+                            "description": "KAPAN AJA NELP 500MNT, 30HR, RP35RB",
+                            "id": 849,
+                            "commission": 2650
+                        },
+                        {
+                            "amount": 39800,
+                            "operator": "XL_PAKET_DATA",
+                            "description": "AXIS PAKET BRONET 24JAM 3GB, 60HR, RP39800",
+                            "id": 858,
+                            "commission": 2950
+                        },
+                        {
+                            "amount": 40000,
+                            "operator": "XL_PAKET_DATA",
+                            "description": "COMBO XTRA 800MB, 30HR, RP39RB",
+                            "id": 832,
+                            "commission": 1625
+                        },
+                        {
+                            "amount": 49900,
+                            "operator": "XL_PAKET_DATA",
+                            "description": "AXIS BB IRIT FUN, 30HR, RP49900",
+                            "id": 815,
+                            "commission": 4050
+                        },
+                        {
+                            "amount": 50000,
+                            "operator": "XL_PAKET_DATA",
+                            "description": "HOTROD PRIORITAS 1.2GB",
+                            "id": 952,
+                            "commission": 2150
+                        },
+                        {
+                            "amount": 55000,
+                            "operator": "XL_PAKET_DATA",
+                            "description": "BB BIZZ (EMAIL&CHAT) RP55RB, 30HR",
+                            "id": 803,
+                            "commission": 4650
+                        },
+                        {
+                            "amount": 59000,
+                            "operator": "XL_PAKET_DATA",
+                            "description": "COMBO XTRA 12GB, 30HR, RP59RB",
+                            "id": 827,
+                            "commission": 5550
+                        },
+                        {
+                            "amount": 59800,
+                            "operator": "XL_PAKET_DATA",
+                            "description": "AXIS PAKET BRONET 24JAM 5GB, 60HR, RP59800",
+                            "id": 860,
+                            "commission": 4950
+                        },
+                        {
+                            "amount": 60000,
+                            "operator": "XL_PAKET_DATA",
+                            "description": "HOTROD 24JAM RP60RB, 30HR, 3GB",
+                            "id": 836,
+                            "commission": 5650
+                        },
+                        {
+                            "amount": 69900,
+                            "operator": "XL_PAKET_DATA",
+                            "description": "AXIS BB IRIT FUN, 90HR, RP69900",
+                            "id": 817,
+                            "commission": 6750
+                        },
+                        {
+                            "amount": 70000,
+                            "operator": "XL_PAKET_DATA",
+                            "description": "BB FULL BIS LITE RP70RB, 30HR",
+                            "id": 805,
+                            "commission": 6150
+                        },
+                        {
+                            "amount": 75000,
+                            "operator": "XL_PAKET_DATA",
+                            "description": "BB XMARTPLAN FULL BIS LITE 75MNT + 75SMS, 30HR",
+                            "id": 820,
+                            "commission": 6650
+                        },
+                        {
+                            "amount": 85000,
+                            "operator": "XL_PAKET_DATA",
+                            "description": "BB FULL BIS LITE UNLIMITED & PULSA RP85RB, 30HR",
+                            "id": 807,
+                            "commission": 7650
+                        },
+                        {
+                            "amount": 89000,
+                            "operator": "XL_PAKET_DATA",
+                            "description": "COMBO XTRA 19GB, 30HR, RP89RB",
+                            "id": 828,
+                            "commission": 8550
+                        },
+                        {
+                            "amount": 90000,
+                            "operator": "XL_PAKET_DATA",
+                            "description": "BB FULL SERVICE RP90RB, 30HR",
+                            "id": 808,
+                            "commission": 8150
+                        },
+                        {
+                            "amount": 100000,
+                            "operator": "XL_PAKET_DATA",
+                            "description": "HOTROD PRIORITAS 4GB",
+                            "id": 954,
+                            "commission": 4650
+                        },
+                        {
+                            "amount": 125000,
+                            "operator": "XL_PAKET_DATA",
+                            "description": "BB 3IN1 RP125RB, 30HR",
+                            "id": 802,
+                            "commission": 11650
+                        },
+                        {
+                            "amount": 130000,
+                            "operator": "XL_PAKET_DATA",
+                            "description": "HOTROD 24JAM RP130RB, 30HR, 8GB",
+                            "id": 838,
+                            "commission": 12550
+                        },
+                        {
+                            "amount": 150000,
+                            "operator": "XL_PAKET_DATA",
+                            "description": "BB XMARTPLAN FULL BIS LITE 75MNT + 75SMS, 90HR",
+                            "id": 821,
+                            "commission": 14150
+                        },
+                        {
+                            "amount": 179000,
+                            "operator": "XL_PAKET_DATA",
+                            "description": "COMBO XTRA 40GB, 30HR, RP179RB",
+                            "id": 830,
+                            "commission": 17550
+                        },
+                        {
+                            "amount": 180000,
+                            "operator": "XL_PAKET_DATA",
+                            "description": "HOTROD 24JAM RP180RB, 30HR, 12GB",
+                            "id": 839,
+                            "commission": 17650
+                        },
+                        {
+                            "amount": 200000,
+                            "operator": "XL_PAKET_DATA",
+                            "description": "BB XMARTPLAN FULL SERVICE 100MNT + 100SMS, 90HR",
+                            "id": 823,
+                            "commission": 19150
+                        },
+                        {
+                            "amount": 220000,
+                            "operator": "XL_PAKET_DATA",
+                            "description": "HOTROD 24JAM RP220RB, 30HR, 16GB",
+                            "id": 840,
+                            "commission": 21650
+                        },
+                        {
+                            "amount": 239000,
+                            "operator": "XL_PAKET_DATA",
+                            "description": "COMBO XTRA 56GB, 30HR, RP239RB",
+                            "id": 831,
+                            "commission": 23550
+                        }
+                    ]
+                }
+            ]
+        }
+
+### Mobile Confirmation [POST /services/recharge/mobile/confirmation]
+
++ Request (application/json)
+
+        {
+            "service_product_id": 988,
+            "phone_number": "082138844644"
+        }
+
++ Response 200 (application/json)
+
+        {
+            "code": 200,
+            "status": true,
+            "message": "Success",
+            "data": {
+                "charge": 0,
+                "actual_amount": 7000,
+                "total_amount": 7000
+            }
+        }
+
+### Mobile Data Confirmation [POST /services/recharge/mobile-data/confirmation]
+
++ Request (application/json)
+
+        {
+            "service_product_id": 756,
+            "phone_number": "082138844644"
+        }
+
++ Response 200 (application/json)
+
+        {
+            "code": 200,
+            "status": true,
+            "message": "Success",
+            "data": {
+                "charge": 0,
+                "actual_amount": 20000,
+                "total_amount": 20000
+            }
+        }
+
+### Mobile Order [POST /services/recharge/mobile/order]
+
++ Request (application/json)
+
+        {
+            "pin": "1234567"
+        }
+
++ Response 200 (application/json)
+
+### Mobile Data Order [POST /services/recharge/mobile-data/order]
+
++ Request (application/json)
+
+        {
+            "pin": "1234567",
+            "service_product_id": 756,
+            "phone_number": "082138844644",
+            "coupon_code": ""
+        }
+
++ Response 200 (application/json)
+
+## Service - Water [/services/water]
+
+### Preset [GET /presets/water]
+
++ Response 200 (application/json)
+
+        {
+            "code": 200,
+            "status": true,
+            "message": "Success",
+            "data": [
+                {
+                    "operator": "PDAM KAB BANGKALAN",
+                    "id": 179
+                },
+                {
+                    "operator": "PDAM KAB BANYUMAS",
+                    "id": 161
+                },
+                {
+                    "operator": "PDAM KAB BERAU",
+                    "id": 186
+                },
+                {
+                    "operator": "PDAM KAB BOJONEGORO",
+                    "id": 180
+                },
+                {
+                    "operator": "PDAM KAB BONDOWOSO",
+                    "id": 181
+                },
+                {
+                    "operator": "PDAM KAB BOYOLALI",
+                    "id": 166
+                },
+                {
+                    "operator": "PDAM KAB BULELENG",
+                    "id": 194
+                },
+                {
+                    "operator": "PDAM KAB CILACAP",
+                    "id": 165
+                },
+                {
+                    "operator": "PDAM KAB JEMBER",
+                    "id": 163
+                },
+                {
+                    "operator": "PDAM KAB KEBUMEN",
+                    "id": 164
+                },
+                {
+                    "operator": "PDAM KAB KENDAL",
+                    "id": 174
+                },
+                {
+                    "operator": "PDAM KAB KUBU RAYA",
+                    "id": 198
+                },
+                {
+                    "operator": "PDAM KAB LOMBOK TENGAH",
+                    "id": 193
+                },
+                {
+                    "operator": "PDAM KAB MOJOKERTO",
+                    "id": 182
+                },
+                {
+                    "operator": "PDAM KAB PEKALONGAN",
+                    "id": 167
+                },
+                {
+                    "operator": "PDAM KAB PROBOLINGGO",
+                    "id": 170
+                },
+                {
+                    "operator": "PDAM KAB PURBALINGGA",
+                    "id": 159
+                },
+                {
+                    "operator": "PDAM KAB PURWOREJO",
+                    "id": 162
+                },
+                {
+                    "operator": "PDAM KAB REMBANG",
+                    "id": 172
+                },
+                {
+                    "operator": "PDAM KAB SIDOARJO",
+                    "id": 183
+                },
+                {
+                    "operator": "PDAM KAB SITUBONDO",
+                    "id": 184
+                },
+                {
+                    "operator": "PDAM KAB SLEMAN",
+                    "id": 168
+                },
+                {
+                    "operator": "PDAM KAB SRAGEN",
+                    "id": 171
+                },
+                {
+                    "operator": "PDAM KAB TAPIN",
+                    "id": 185
+                },
+                {
+                    "operator": "PDAM KAB WONOGIRI",
+                    "id": 169
+                },
+                {
+                    "operator": "PDAM KAB WONOSOBO",
+                    "id": 160
+                },
+                {
+                    "operator": "PDAM KOTA BALIKPAPAN",
+                    "id": 188
+                },
+                {
+                    "operator": "PDAM KOTA BANDAR LAMPUNG",
+                    "id": 177
+                },
+                {
+                    "operator": "PDAM KOTA BANDUNG",
+                    "id": 176
+                },
+                {
+                    "operator": "PDAM KOTA BANJARBARU",
+                    "id": 191
+                },
+                {
+                    "operator": "PDAM KOTA BANJARMASIN",
+                    "id": 187
+                },
+                {
+                    "operator": "PDAM KOTA DENPASAR",
+                    "id": 197
+                },
+                {
+                    "operator": "PDAM KOTA JAMBI",
+                    "id": 178
+                },
+                {
+                    "operator": "PDAM KOTA MAKASSAR",
+                    "id": 199
+                },
+                {
+                    "operator": "PDAM KOTA MANADO",
+                    "id": 189
+                },
+                {
+                    "operator": "PDAM KOTA MATARAM",
+                    "id": 192
+                },
+                {
+                    "operator": "PDAM KOTA MEDAN",
+                    "id": 144
+                },
+                {
+                    "operator": "PDAM KOTA PALEMBANG",
+                    "id": 175
+                },
+                {
+                    "operator": "PDAM KOTA PASURUAN",
+                    "id": 211
+                },
+                {
+                    "operator": "PDAM KOTA PONTIANAK",
+                    "id": 190
+                },
+                {
+                    "operator": "PDAM KOTA SALATIGA",
+                    "id": 173
+                },
+                {
+                    "operator": "PDAM KOTA SEMARANG",
+                    "id": 200
+                },
+                {
+                    "operator": "PDAM KOTA TANAH GROGOT",
+                    "id": 196
+                },
+                {
+                    "operator": "PDAM PALYJA ",
+                    "id": 212
+                }
+            ]
+        }
+
+### Confirmation [POST /services/water/confirmation]
+
++ Request (application/json)
+
+        {
+            "service_product_id": 179,
+            "phone_number": "082138844644",
+            "customer_id": "asdf"
+        }
+
++ Response 200 (application/json)
+
+        {
+            "code": 200,
+            "status": true,
+            "message": "Success",
+            "data": {
+                "customer_id": "asdf",
+                "customer_name": "NURJANNAH",
+                "customer_phone": "082138844644",
+                "due_date": 1513530000,
+                "stand_meter": "76 M3",
+                "charge": 6000,
+                "actual_amount": 366275,
+                "total_amount": 372275
+            }
+        }
+
+### Order [POST /services/water/order]
+
++ Request (application/json)
+
+        {
+            "pin": "1234567",
+            "service_product_id": 179,
+            "phone_number": "082138844643",
+            "coupon_code": "",
+            "customer_id": "asdf"
+        }
+
++ Response 200 (application/json)
+
+        {
+            "code": 200,
+            "status": true,
+            "message": "Success",
+            "data": {
+                "service_product": "AIR PDAM - Desember 2017",
+                "customer_id": "asdf",
+                "order_id": "111BHJCQ",
+                "amount": 372275
+            }
         }
 
 ## Transaction [/transactions]
@@ -700,3 +3150,118 @@ status: todo
                 }
             ]
         }
+
+## User [/user]
+
+### Update Profile [PUT /user]
+
++ Request (application/json)
+
+        {
+            "name": "Satrio Wisnugroho",
+            "email": "wisnugrohosatrio@gmail.com",
+            "store_name": "Wisnu Cell",
+            "store_phone": "082138844644",
+            "store_type": "TOKO PULSA",
+            "street": "Tampomas Sleman",
+            "province": "BALI",
+            "district": "BADUNG",
+            "city": "KUTA SELATAN",
+            "village": "KUTUH",
+            "zip_code": "123456",
+            "store_street": "Tampomas Sleman",
+            "store_province": "BALI",
+            "store_district": "BADUNG",
+            "store_city": "KUTA SELATAN",
+            "store_village": "KUTUH",
+            "store_zip_code": "123456",
+            "latitude": "-7.77135075",
+            "longitude": "110.34580316",
+            "isShop": "0",
+            "id_image": "base64",
+            "store_image": "base64",
+            "selfie_image": "base64"
+        }
+
++ Response 200 (application/json)
+
+        {
+            "code": 200,
+            "status": true,
+            "message": "Udpated Successfully.",
+            "data": {}
+        }
+
+### Get Information [GET /user]
+
++ Response 200 (application/json)
+
+        {
+            "code": 200,
+            "status": true,
+            "message": "Success",
+            "data": {
+                "website": "N/A",
+                "retailer_id": "RZZY",
+                "icp_category_name": "KCP PREMIUM",
+                "distributer_id": "D0A",
+                "first_name": "Satrio",
+                "last_name": "Wisnugroho",
+                "mobile_no": "085694946170",
+                "mobno": "085694946170",
+                "dist_first_name": "IPay Tech",
+                "dist_lastt_name": "India",
+                "icc_category_name": "KCC PREMIUM",
+                "village": "KUTUH",
+                "constituency": "KUTA SELATAN",
+                "distmobnum": "9703437763",
+                "hno": "23",
+                "street": "AXA JAKARTAX",
+                "locality": "Tampomas Sleman",
+                "landmark": "XXX",
+                "city": "AXA JAKARTA",
+                "district": "BADUNG",
+                "pincode": "123456",
+                "state": "BALI",
+                "business_name": "Wisnu Cell",
+                "business_type": "TOKO PULSA",
+                "landline": "",
+                "email": "wisnugrohosatrio@gmail.com",
+                "customer_care": "+62-818-0721-8383,+62-812-9556-8383,+62-899-983-8383,+62-857-7625-8383,+62-817-233-3838"
+            }
+        }
+
+### Get Balance [GET /user/balance]
+
++ Response 200 (application/json)
+
+        {
+            "code": 200,
+            "status": true,
+            "message": "Success",
+            "data": {
+                "total_sales": 1485204,
+                "net_sales": 1485204,
+                "discount": 0
+            }
+        }
+
+### Pin [GET /user/pin]
+status: todo
+
++ Response 200 (application/json)
+
+### List Messages [GET /user/messages]
+status: todo
+
++ Response 200 (application/json)
+
+### Update App Version [PUT /user/app-version]
+status: todo
+
++ Response 200 (application/json)
+
+### Loan Activity [POST /user/loan-activity]
+status: todo
+
++ Response 200 (application/json)
