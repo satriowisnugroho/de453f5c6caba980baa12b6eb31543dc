@@ -1243,6 +1243,73 @@ status: todo
             }
         }
 
+## Service - Pay [/services/pay]
+
+### Preset [GET /presets/pay]
+
++ Response 200 (application/json)
+
+        {
+            "code": 200,
+            "status": true,
+            "message": "Success",
+            "data": [
+                {
+                    "operator": "TOKOPEDIA",
+                    "id": 726
+                }
+            ]
+        }
+
+### Confirmation [POST /services/pay/confirmation]
+
++ Request (application/json)
+
+        {
+            "service_product_id": 726,
+            "phone_number": "0818457475",
+            "payment_code": "AJ0818457475"
+        }
+
++ Response 200 (application/json)
+
+        {
+            "code": 200,
+            "status": true,
+            "message": "Success",
+            "data": {
+                "charge": 2500,
+                "actual_amount": 50000,
+                "total_amount": 52500
+            }
+        }
+
+### Order [POST /services/pay/order]
+
++ Request (application/json)
+
+        {
+            "pin": "1234567",
+            "service_product_id": 726,
+            "phone_number": "0818457475",
+            "payment_code": "AJ0818457475",
+            "coupon_code": ""
+        }
+
++ Response 200 (application/json)
+
+        {
+            "code": 200,
+            "status": true,
+            "message": "Success",
+            "data": {
+                "service_product": "Tokopedia",
+                "payment_code": "AJ0818457475",
+                "order_id": "1153WNCQ",
+                "amount": 52500
+            }
+        }
+
 ## Service - Phone [/services/phone]
 
 ### Confirmation [POST /services/phone/confirmation]
