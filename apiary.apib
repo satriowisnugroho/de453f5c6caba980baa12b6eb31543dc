@@ -1423,6 +1423,32 @@ status: todo
             ]
         }
 
+### Prepaid Confirmation [POST /services/power/prepaid/confirmation]
+
++ Request (application/json)
+
+        {
+            "customer_id": "01100662194",
+            "phone_number": "082138844643",
+            "amount": 30000
+        }
+
++ Response 200 (application/json)
+
+        {
+            "code": 200,
+            "status": true,
+            "message": "Success",
+            "data": {
+                "customer_id": "01100662194",
+                "customer_name": "KARTO SOEWITO",
+                "customer_phone": "082138844643",
+                "charge": 31600,
+                "actual_amount": 30000,
+                "total_amount": 31600
+            }
+        }
+
 ### Prepaid Order [POST /services/power/prepaid/order]
 
 + Request (application/json)
