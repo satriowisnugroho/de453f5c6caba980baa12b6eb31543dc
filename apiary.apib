@@ -2623,6 +2623,63 @@ status: todo
 
 + Response 200 (application/json)
 
+## Service - Train [/services/train]
+
+### Confirmation [POST /services/train/confirmation]
+
++ Request (application/json)
+
+        {
+            "payment_code": "9994557279804",
+            "phone_number": "082138844643"
+        }
+
++ Response 200 (application/json)
+
+        {
+            "code": 200,
+            "status": true,
+            "message": "Success",
+            "data": {
+                "payment_code": "9994557279804",
+                "train_name": "PANGRANGO",
+                "train_route": "BOO-CBD",
+                "departure_at": 1516275000,
+                "total_passenger": 1,
+                "passenger_name": "FX SYAHASTA APRIL TANTRI",
+                "charge": 0,
+                "actual_amount": 17500,
+                "total_amount": 17500
+            }
+        }
+
+### Order [POST /services/train/order]
+
++ Request (application/json)
+
+        {
+            "pin": "1234567",
+            "payment_code": "9994557279804",
+            "phone_number": "082138844643",
+            "coupon_code": ""
+        }
+
++ Response 200 (application/json)
+
+        {
+            "code": 200,
+            "status": true,
+            "message": "Success",
+            "data": {
+                "order_id": "117U2NCQ",
+                "train_name": "PANGRANGO",
+                "departure_at": 1516275000,
+                "payment_code": "9994557279804",
+                "amount": 17500,
+                "print": "<html><head>\n<style type='text/css'>\n\n.printpage, .printpage th, .printpage td {\n    /* border: 1px solid black; */\n    border-collapse: collapse;\n}\n.printpage{border: 2px solid #ccc; width:60%;}\n.printpage th, .printpage td {padding:8px; width:50%;}\n.printpage{margin-left:auto; margin-right:auto;}\n .fontbold{ font-weight:bold; text-align:left;}\n.textleft{ text-align:left;}\n @media(max-width:640px){.printpage{width:100%;}}\n</style></head><body style='font-size:15px; font-family:arial;'><table class='printpage'><tr><td class='fontbold' colspan='2'>STRUK PEMBAYARAN TIKET KERETA API </td></tr><tr><td class='fontbold'>KODE BOOKING</td><td class='textleft'>:&nbsp;&nbsp;&nbsp;&nbsp;53RHRA          </td></tr><tr><td class='fontbold'>KODE BAYAR</td><td class='textleft'>:&nbsp;&nbsp;&nbsp;&nbsp;9994557279804</td></tr><tr><td class='fontbold'>NAMA PENUMPANG</td><td class='textleft'>:&nbsp;&nbsp;&nbsp;&nbsp;FX SYAHASTA APRIL TANTRI</td></tr><tr><td class='fontbold'>TOTAL BAYAR</td><td class='textleft'>:&nbsp;&nbsp;&nbsp;&nbsp;Rp.17.500</td></tr><tr><td class='fontbold'>REF FM</td><td class='textleft'>:&nbsp;&nbsp;&nbsp;&nbsp;201712221506399994557279804</td></tr><tr><td class='fontbold'>NAMA KA</td><td class='textleft'>:&nbsp;&nbsp;&nbsp;&nbsp;PANGRANGO                     </td></tr><tr><td class='fontbold'>RUTE</td><td class='textleft'>:&nbsp;&nbsp;&nbsp;&nbsp;BOO-CBD</td></tr><tr><td class='fontbold'>BERANGKAT</td><td class='textleft'>:&nbsp;&nbsp;&nbsp;&nbsp;18/01/2018 18.30</td></tr><tr><td class='fontbold'>TIBA</td><td class='textleft'>:&nbsp;&nbsp;&nbsp;&nbsp;18/01/2018 19.58</td></tr><tr><td class='fontbold'>KURSI</td><td class='textleft'>:&nbsp;&nbsp;&nbsp;&nbsp;2A</td></tr><tr><td class='fontbold' COLSPAN='2'></td></tr></table></body></html>"
+            }
+        }
+
 ## Service - Water [/services/water]
 
 ### Preset [GET /presets/water]
