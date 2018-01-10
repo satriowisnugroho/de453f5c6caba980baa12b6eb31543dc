@@ -62,7 +62,7 @@ bridging for existing API to New API format
 
 ## Global [/global]
 
-### Check Version [POST /coupon]
+### Check Coupon [POST /coupon]
 
 + Request (application/json)
 
@@ -78,7 +78,14 @@ bridging for existing API to New API format
             "code": 200,
             "status": true,
             "message": "",
-            "data": {}
+            "data": {
+                "campaign_name": "Bonus Pulsa",
+                "amount": 15000,
+                "status": "",
+                "coupon_code": "RMD10X",
+                "coupon_value": "",
+                "final_amount": 15000,
+            }
         }
 
 ### Get News [GET /news]
