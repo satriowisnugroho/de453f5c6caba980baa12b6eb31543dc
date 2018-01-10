@@ -2652,10 +2652,25 @@ status: todo
 + Request (application/json)
 
         {
-            "pin": "1234567"
+            "pin": "1234567",
+            "service_product_id": 988,
+            "phone_number": "082138844644",
+            "coupon_code": ""
         }
 
 + Response 200 (application/json)
+
+        {
+            "code": 200,
+            "status": true,
+            "message": "Success",
+            "data": {
+                "service_product": "Pulsa Telkomsel 10.000",
+                "phone_number": "082138844644",
+                "order_id": "VJD123",
+                "amount": 10000,
+            }
+        }
 
 ### Mobile Data Order [POST /services/recharge/mobile-data/order]
 
@@ -2669,6 +2684,18 @@ status: todo
         }
 
 + Response 200 (application/json)
+
+        {
+            "code": 200,
+            "status": true,
+            "message": "Success",
+            "data": {
+                "service_product": "Paket Data TELKOMSEL 10RB, 45MB 30HR",
+                "phone_number": "082138844644",
+                "order_id": "VJD123",
+                "amount": 10000,
+            }
+        }
 
 ## Service - Train [/services/train]
 
