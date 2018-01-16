@@ -136,6 +136,50 @@ bridging for existing API to New API format
             ]
         }
 
+### Get News [GET /promo]
+
++ Response 200 (application/json)
+
+        {
+            "code": 200,
+            "status": true,
+            "message": "Success",
+            "data": [
+                {
+                    "id": 4191,
+                    "status": 1,
+                    "subject": "Test News",
+                    "content": "Tawaran menarik nih harbolnas",
+                    "image": "http://via.placeholder.com/1000x500",
+                    "created_at": 1513150751
+                },
+                {
+                    "id": 4197,
+                    "status": 1,
+                    "subject": "admin",
+                    "content": "lorem ipsum dolor sit amet",
+                    "image": "http://via.placeholder.com/1000x500",
+                    "created_at": 1513217728
+                },
+                {
+                    "id": 4198,
+                    "status": 1,
+                    "subject": "info",
+                    "content": "lorem ipsum dolor sit amet",
+                    "image": "http://via.placeholder.com/1000x500",
+                    "created_at": 1513217755
+                },
+                {
+                    "id": 4199,
+                    "status": 1,
+                    "subject": "others",
+                    "content": "lorem ipsum dolor sit amet",
+                    "image": "http://via.placeholder.com/1000x500",
+                    "created_at": 1513217779
+                }
+            ]
+        }
+
 ## Location [/location]
 
 ### States [GET /location/states]
