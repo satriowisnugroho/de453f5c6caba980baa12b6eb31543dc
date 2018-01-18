@@ -192,15 +192,15 @@ bridging for existing API to New API format
             "message": "Success",
             "data": [
                 {
-                    "id": 1,
+                    "id": "BALI",
                     "name": "BALI"
                 },
                 {
-                    "id": 2,
+                    "id": "BANGKA BELITUNG",
                     "name": "BANGKA BELITUNG"
                 },
                 {
-                    "id": 2,
+                    "id": "BANTEN",
                     "name": "BANTEN"
                 }
             ]
@@ -209,7 +209,7 @@ bridging for existing API to New API format
 ### Districts [GET /location/districts?state_id={state_id}]
 
 + Parameters
-    + state_id: 1 (number, required)
+    + state_id: "BALI" (string, required)
 
 + Response 200 (application/json)
 
@@ -219,15 +219,15 @@ bridging for existing API to New API format
             "message": "Success",
             "data": [
                 {
-                    "id": 1,
+                    "id": "BADUNG",
                     "name": "BADUNG"
                 },
                 {
-                    "id": 2,
+                    "id": "BANGLI",
                     "name": "BANGLI"
                 },
                 {
-                    "id": 3,
+                    "id": "BULELENG",
                     "name": "BULELENG"
                 }
             ]
@@ -236,7 +236,7 @@ bridging for existing API to New API format
 ### Cities [GET /location/cities?district_id={district_id}]
 
 + Parameters
-    + district_id: 3 (number, required)
+    + district_id: "BULELENG" (string, required)
 
 + Response 200 (application/json)
 
@@ -246,15 +246,15 @@ bridging for existing API to New API format
             "message": "Success",
             "data": [
                 {
-                    "id": 1,
+                    "id": "BANJAR",
                     "name": "BANJAR"
                 },
                 {
-                    "id": 2,
+                    "id": "BULELENG",
                     "name": "BULELENG"
                 },
                 {
-                    "id": 3,
+                    "id": "BUSUNGBIU",
                     "name": "BUSUNGBIU"
                 }
             ]
@@ -263,7 +263,7 @@ bridging for existing API to New API format
 ### Villages [GET /location/villages?city_id={city_id}]
 
 + Parameters
-    + city_id: 1 (number, required)
+    + city_id: "BANJAR" (string, required)
 
 + Response 200 (application/json)
 
@@ -273,15 +273,15 @@ bridging for existing API to New API format
             "message": "Success",
             "data": [
                 {
-                    "id": 1,
+                    "id": "BALOKANG",
                     "name": "BALOKANG"
                 },
                 {
-                    "id": 2,
+                    "id": "BANDUNG",
                     "name": "BANDUNG"
                 },
                 {
-                    "id": 3,
+                    "id": "BANJAR",
                     "name": "BANJAR"
                 }
             ]
@@ -659,9 +659,9 @@ status: todo
             "message": "Success",
             "data": {
                 "discount": 0,
-                "charge": 0,
+                "charge": 1000,
                 "actual_amount": 5000,
-                "total_amount": 20000
+                "total_amount": 6000
             }
         }
 
@@ -682,9 +682,15 @@ status: todo
 
         {
             "code": 200,
-            "status": false,
-            "message": "APX10014 : System Error.Silahkan Dicoba Kembali",
-            "data": {}
+            "status": true,
+            "message": "Success",
+            "data": {
+                "order_id": "117U2NCQ",
+                "payment_code": "9994557279804",
+                "amount": 6000,
+                "print": "*************KIOSON*************~*********www.kioson.com*********~ID KCP       :R82T~--------------------------------~STRUK PEMBELIAN PULSA XL ~--------------------------------~TANGGAL     :2017-12-07 14:12:14~ID Pesanan       :113X67CQ~Operator         :XL~Nomer Handphone  :0818457475~Nilai Transaksi  :Rp.6.500~--------------------------------~Terima kasih telah bertransaksi di kioson~Untuk informasi lebih lanjut~silahkan hubungi~XL:0818-0721-8383~Indosat:0857-7625-8383~3 Three:0899-983-8383~Telkomsel:0812-9556-8383~================================~*********www.kioson.com**********~",
+                "print_html": "<html><head>\n<style type='text/css'>\n\n.printpage, .printpage th, .printpage td {\n    /* border: 1px solid black; */\n    border-collapse: collapse;\n}\n.printpage{border: 2px solid #ccc; width:60%;}\n.printpage th, .printpage td {padding:8px; width:50%;}\n.printpage{margin-left:auto; margin-right:auto;}\n .fontbold{ font-weight:bold; text-align:left;}\n.textleft{ text-align:left;}\n @media(max-width:640px){.printpage{width:100%;}}\n</style></head><body style='font-size:15px; font-family:arial;'><table class='printpage'><tr><td class='fontbold' colspan='2'>STRUK PEMBAYARAN TIKET KERETA API </td></tr><tr><td class='fontbold'>KODE BOOKING</td><td class='textleft'>:&nbsp;&nbsp;&nbsp;&nbsp;53RHRA          </td></tr><tr><td class='fontbold'>KODE BAYAR</td><td class='textleft'>:&nbsp;&nbsp;&nbsp;&nbsp;9994557279804</td></tr><tr><td class='fontbold'>NAMA PENUMPANG</td><td class='textleft'>:&nbsp;&nbsp;&nbsp;&nbsp;FX SYAHASTA APRIL TANTRI</td></tr><tr><td class='fontbold'>TOTAL BAYAR</td><td class='textleft'>:&nbsp;&nbsp;&nbsp;&nbsp;Rp.17.500</td></tr><tr><td class='fontbold'>REF FM</td><td class='textleft'>:&nbsp;&nbsp;&nbsp;&nbsp;201712221506399994557279804</td></tr><tr><td class='fontbold'>NAMA KA</td><td class='textleft'>:&nbsp;&nbsp;&nbsp;&nbsp;PANGRANGO                     </td></tr><tr><td class='fontbold'>RUTE</td><td class='textleft'>:&nbsp;&nbsp;&nbsp;&nbsp;BOO-CBD</td></tr><tr><td class='fontbold'>BERANGKAT</td><td class='textleft'>:&nbsp;&nbsp;&nbsp;&nbsp;18/01/2018 18.30</td></tr><tr><td class='fontbold'>TIBA</td><td class='textleft'>:&nbsp;&nbsp;&nbsp;&nbsp;18/01/2018 19.58</td></tr><tr><td class='fontbold'>KURSI</td><td class='textleft'>:&nbsp;&nbsp;&nbsp;&nbsp;2A</td></tr><tr><td class='fontbold' COLSPAN='2'></td></tr></table></body></html>"
+            }
         }
 
 ## Service - Game [/services/game]
@@ -922,9 +928,15 @@ status: todo
 
         {
             "code": 200,
-            "status": false,
-            "message": "Permintaan Anda untuk Pembelian Vocher Game atas ID Order 111B4JCQ senilai Rp. 65.500 telah gagal diproses.",
-            "data": {}
+            "status": true,
+            "message": "Success",
+            "data": {
+                "order_id": "111B4JCQ",
+                "payment_code": "9994557279804",
+                "amount": 65500,
+                "print": "*************KIOSON*************~*********www.kioson.com*********~ID KCP       :R82T~--------------------------------~STRUK PEMBELIAN PULSA XL ~--------------------------------~TANGGAL     :2017-12-07 14:12:14~ID Pesanan       :113X67CQ~Operator         :XL~Nomer Handphone  :0818457475~Nilai Transaksi  :Rp.6.500~--------------------------------~Terima kasih telah bertransaksi di kioson~Untuk informasi lebih lanjut~silahkan hubungi~XL:0818-0721-8383~Indosat:0857-7625-8383~3 Three:0899-983-8383~Telkomsel:0812-9556-8383~================================~*********www.kioson.com**********~",
+                "print_html": "<html><head>\n<style type='text/css'>\n\n.printpage, .printpage th, .printpage td {\n    /* border: 1px solid black; */\n    border-collapse: collapse;\n}\n.printpage{border: 2px solid #ccc; width:60%;}\n.printpage th, .printpage td {padding:8px; width:50%;}\n.printpage{margin-left:auto; margin-right:auto;}\n .fontbold{ font-weight:bold; text-align:left;}\n.textleft{ text-align:left;}\n @media(max-width:640px){.printpage{width:100%;}}\n</style></head><body style='font-size:15px; font-family:arial;'><table class='printpage'><tr><td class='fontbold' colspan='2'>STRUK PEMBAYARAN TIKET KERETA API </td></tr><tr><td class='fontbold'>KODE BOOKING</td><td class='textleft'>:&nbsp;&nbsp;&nbsp;&nbsp;53RHRA          </td></tr><tr><td class='fontbold'>KODE BAYAR</td><td class='textleft'>:&nbsp;&nbsp;&nbsp;&nbsp;9994557279804</td></tr><tr><td class='fontbold'>NAMA PENUMPANG</td><td class='textleft'>:&nbsp;&nbsp;&nbsp;&nbsp;FX SYAHASTA APRIL TANTRI</td></tr><tr><td class='fontbold'>TOTAL BAYAR</td><td class='textleft'>:&nbsp;&nbsp;&nbsp;&nbsp;Rp.17.500</td></tr><tr><td class='fontbold'>REF FM</td><td class='textleft'>:&nbsp;&nbsp;&nbsp;&nbsp;201712221506399994557279804</td></tr><tr><td class='fontbold'>NAMA KA</td><td class='textleft'>:&nbsp;&nbsp;&nbsp;&nbsp;PANGRANGO                     </td></tr><tr><td class='fontbold'>RUTE</td><td class='textleft'>:&nbsp;&nbsp;&nbsp;&nbsp;BOO-CBD</td></tr><tr><td class='fontbold'>BERANGKAT</td><td class='textleft'>:&nbsp;&nbsp;&nbsp;&nbsp;18/01/2018 18.30</td></tr><tr><td class='fontbold'>TIBA</td><td class='textleft'>:&nbsp;&nbsp;&nbsp;&nbsp;18/01/2018 19.58</td></tr><tr><td class='fontbold'>KURSI</td><td class='textleft'>:&nbsp;&nbsp;&nbsp;&nbsp;2A</td></tr><tr><td class='fontbold' COLSPAN='2'></td></tr></table></body></html>"
+            }
         }
 
 ## Service - Money [/services/money]
@@ -1355,8 +1367,11 @@ status: todo
             "data": {
                 "service_product": "Transfer Uang - 500000",
                 "destination_account": "BANK CIMB NIAGA 555010",
-                "order_id": null,
-                "amount": null
+                "order_id": "111B4JCQ",
+                "payment_code": "9994557279804",
+                "amount": 65500,
+                "print": "*************KIOSON*************~*********www.kioson.com*********~ID KCP       :R82T~--------------------------------~STRUK PEMBELIAN PULSA XL ~--------------------------------~TANGGAL     :2017-12-07 14:12:14~ID Pesanan       :113X67CQ~Operator         :XL~Nomer Handphone  :0818457475~Nilai Transaksi  :Rp.6.500~--------------------------------~Terima kasih telah bertransaksi di kioson~Untuk informasi lebih lanjut~silahkan hubungi~XL:0818-0721-8383~Indosat:0857-7625-8383~3 Three:0899-983-8383~Telkomsel:0812-9556-8383~================================~*********www.kioson.com**********~",
+                "print_html": "<html><head>\n<style type='text/css'>\n\n.printpage, .printpage th, .printpage td {\n    /* border: 1px solid black; */\n    border-collapse: collapse;\n}\n.printpage{border: 2px solid #ccc; width:60%;}\n.printpage th, .printpage td {padding:8px; width:50%;}\n.printpage{margin-left:auto; margin-right:auto;}\n .fontbold{ font-weight:bold; text-align:left;}\n.textleft{ text-align:left;}\n @media(max-width:640px){.printpage{width:100%;}}\n</style></head><body style='font-size:15px; font-family:arial;'><table class='printpage'><tr><td class='fontbold' colspan='2'>STRUK PEMBAYARAN TIKET KERETA API </td></tr><tr><td class='fontbold'>KODE BOOKING</td><td class='textleft'>:&nbsp;&nbsp;&nbsp;&nbsp;53RHRA          </td></tr><tr><td class='fontbold'>KODE BAYAR</td><td class='textleft'>:&nbsp;&nbsp;&nbsp;&nbsp;9994557279804</td></tr><tr><td class='fontbold'>NAMA PENUMPANG</td><td class='textleft'>:&nbsp;&nbsp;&nbsp;&nbsp;FX SYAHASTA APRIL TANTRI</td></tr><tr><td class='fontbold'>TOTAL BAYAR</td><td class='textleft'>:&nbsp;&nbsp;&nbsp;&nbsp;Rp.17.500</td></tr><tr><td class='fontbold'>REF FM</td><td class='textleft'>:&nbsp;&nbsp;&nbsp;&nbsp;201712221506399994557279804</td></tr><tr><td class='fontbold'>NAMA KA</td><td class='textleft'>:&nbsp;&nbsp;&nbsp;&nbsp;PANGRANGO                     </td></tr><tr><td class='fontbold'>RUTE</td><td class='textleft'>:&nbsp;&nbsp;&nbsp;&nbsp;BOO-CBD</td></tr><tr><td class='fontbold'>BERANGKAT</td><td class='textleft'>:&nbsp;&nbsp;&nbsp;&nbsp;18/01/2018 18.30</td></tr><tr><td class='fontbold'>TIBA</td><td class='textleft'>:&nbsp;&nbsp;&nbsp;&nbsp;18/01/2018 19.58</td></tr><tr><td class='fontbold'>KURSI</td><td class='textleft'>:&nbsp;&nbsp;&nbsp;&nbsp;2A</td></tr><tr><td class='fontbold' COLSPAN='2'></td></tr></table></body></html>"
             }
         }
 
@@ -1423,7 +1438,9 @@ status: todo
                 "service_product": "Tokopedia",
                 "payment_code": "AJ0818457475",
                 "order_id": "1153WNCQ",
-                "amount": 52500
+                "amount": 52500,
+                "print": "*************KIOSON*************~*********www.kioson.com*********~ID KCP       :R82T~--------------------------------~STRUK PEMBELIAN PULSA XL ~--------------------------------~TANGGAL     :2017-12-07 14:12:14~ID Pesanan       :113X67CQ~Operator         :XL~Nomer Handphone  :0818457475~Nilai Transaksi  :Rp.6.500~--------------------------------~Terima kasih telah bertransaksi di kioson~Untuk informasi lebih lanjut~silahkan hubungi~XL:0818-0721-8383~Indosat:0857-7625-8383~3 Three:0899-983-8383~Telkomsel:0812-9556-8383~================================~*********www.kioson.com**********~",
+                "print_html": "<html><head>\n<style type='text/css'>\n\n.printpage, .printpage th, .printpage td {\n    /* border: 1px solid black; */\n    border-collapse: collapse;\n}\n.printpage{border: 2px solid #ccc; width:60%;}\n.printpage th, .printpage td {padding:8px; width:50%;}\n.printpage{margin-left:auto; margin-right:auto;}\n .fontbold{ font-weight:bold; text-align:left;}\n.textleft{ text-align:left;}\n @media(max-width:640px){.printpage{width:100%;}}\n</style></head><body style='font-size:15px; font-family:arial;'><table class='printpage'><tr><td class='fontbold' colspan='2'>STRUK PEMBAYARAN TIKET KERETA API </td></tr><tr><td class='fontbold'>KODE BOOKING</td><td class='textleft'>:&nbsp;&nbsp;&nbsp;&nbsp;53RHRA          </td></tr><tr><td class='fontbold'>KODE BAYAR</td><td class='textleft'>:&nbsp;&nbsp;&nbsp;&nbsp;9994557279804</td></tr><tr><td class='fontbold'>NAMA PENUMPANG</td><td class='textleft'>:&nbsp;&nbsp;&nbsp;&nbsp;FX SYAHASTA APRIL TANTRI</td></tr><tr><td class='fontbold'>TOTAL BAYAR</td><td class='textleft'>:&nbsp;&nbsp;&nbsp;&nbsp;Rp.17.500</td></tr><tr><td class='fontbold'>REF FM</td><td class='textleft'>:&nbsp;&nbsp;&nbsp;&nbsp;201712221506399994557279804</td></tr><tr><td class='fontbold'>NAMA KA</td><td class='textleft'>:&nbsp;&nbsp;&nbsp;&nbsp;PANGRANGO                     </td></tr><tr><td class='fontbold'>RUTE</td><td class='textleft'>:&nbsp;&nbsp;&nbsp;&nbsp;BOO-CBD</td></tr><tr><td class='fontbold'>BERANGKAT</td><td class='textleft'>:&nbsp;&nbsp;&nbsp;&nbsp;18/01/2018 18.30</td></tr><tr><td class='fontbold'>TIBA</td><td class='textleft'>:&nbsp;&nbsp;&nbsp;&nbsp;18/01/2018 19.58</td></tr><tr><td class='fontbold'>KURSI</td><td class='textleft'>:&nbsp;&nbsp;&nbsp;&nbsp;2A</td></tr><tr><td class='fontbold' COLSPAN='2'></td></tr></table></body></html>"
             }
         }
 
@@ -1477,7 +1494,9 @@ status: todo
                 "customer_id": "02175888901",
                 "order_id": "111BMJCQ",
                 "amount": 140080,
-                "payment_code": "18156631"
+                "payment_code": "18156631",
+                "print": "*************KIOSON*************~*********www.kioson.com*********~ID KCP       :R82T~--------------------------------~STRUK PEMBELIAN PULSA XL ~--------------------------------~TANGGAL     :2017-12-07 14:12:14~ID Pesanan       :113X67CQ~Operator         :XL~Nomer Handphone  :0818457475~Nilai Transaksi  :Rp.6.500~--------------------------------~Terima kasih telah bertransaksi di kioson~Untuk informasi lebih lanjut~silahkan hubungi~XL:0818-0721-8383~Indosat:0857-7625-8383~3 Three:0899-983-8383~Telkomsel:0812-9556-8383~================================~*********www.kioson.com**********~",
+                "print_html": "<html><head>\n<style type='text/css'>\n\n.printpage, .printpage th, .printpage td {\n    /* border: 1px solid black; */\n    border-collapse: collapse;\n}\n.printpage{border: 2px solid #ccc; width:60%;}\n.printpage th, .printpage td {padding:8px; width:50%;}\n.printpage{margin-left:auto; margin-right:auto;}\n .fontbold{ font-weight:bold; text-align:left;}\n.textleft{ text-align:left;}\n @media(max-width:640px){.printpage{width:100%;}}\n</style></head><body style='font-size:15px; font-family:arial;'><table class='printpage'><tr><td class='fontbold' colspan='2'>STRUK PEMBAYARAN TIKET KERETA API </td></tr><tr><td class='fontbold'>KODE BOOKING</td><td class='textleft'>:&nbsp;&nbsp;&nbsp;&nbsp;53RHRA          </td></tr><tr><td class='fontbold'>KODE BAYAR</td><td class='textleft'>:&nbsp;&nbsp;&nbsp;&nbsp;9994557279804</td></tr><tr><td class='fontbold'>NAMA PENUMPANG</td><td class='textleft'>:&nbsp;&nbsp;&nbsp;&nbsp;FX SYAHASTA APRIL TANTRI</td></tr><tr><td class='fontbold'>TOTAL BAYAR</td><td class='textleft'>:&nbsp;&nbsp;&nbsp;&nbsp;Rp.17.500</td></tr><tr><td class='fontbold'>REF FM</td><td class='textleft'>:&nbsp;&nbsp;&nbsp;&nbsp;201712221506399994557279804</td></tr><tr><td class='fontbold'>NAMA KA</td><td class='textleft'>:&nbsp;&nbsp;&nbsp;&nbsp;PANGRANGO                     </td></tr><tr><td class='fontbold'>RUTE</td><td class='textleft'>:&nbsp;&nbsp;&nbsp;&nbsp;BOO-CBD</td></tr><tr><td class='fontbold'>BERANGKAT</td><td class='textleft'>:&nbsp;&nbsp;&nbsp;&nbsp;18/01/2018 18.30</td></tr><tr><td class='fontbold'>TIBA</td><td class='textleft'>:&nbsp;&nbsp;&nbsp;&nbsp;18/01/2018 19.58</td></tr><tr><td class='fontbold'>KURSI</td><td class='textleft'>:&nbsp;&nbsp;&nbsp;&nbsp;2A</td></tr><tr><td class='fontbold' COLSPAN='2'></td></tr></table></body></html>"
             }
         }
 
@@ -1623,7 +1642,9 @@ status: todo
                 "service_product": "Listrik PLN Pascabayar",
                 "customer_id": "9032427221",
                 "order_id": "111BGJCQ",
-                "amount": 890349
+                "amount": 890349,
+                "print": "*************KIOSON*************~*********www.kioson.com*********~ID KCP       :R82T~--------------------------------~STRUK PEMBELIAN PULSA XL ~--------------------------------~TANGGAL     :2017-12-07 14:12:14~ID Pesanan       :113X67CQ~Operator         :XL~Nomer Handphone  :0818457475~Nilai Transaksi  :Rp.6.500~--------------------------------~Terima kasih telah bertransaksi di kioson~Untuk informasi lebih lanjut~silahkan hubungi~XL:0818-0721-8383~Indosat:0857-7625-8383~3 Three:0899-983-8383~Telkomsel:0812-9556-8383~================================~*********www.kioson.com**********~",
+                "print_html": "<html><head>\n<style type='text/css'>\n\n.printpage, .printpage th, .printpage td {\n    /* border: 1px solid black; */\n    border-collapse: collapse;\n}\n.printpage{border: 2px solid #ccc; width:60%;}\n.printpage th, .printpage td {padding:8px; width:50%;}\n.printpage{margin-left:auto; margin-right:auto;}\n .fontbold{ font-weight:bold; text-align:left;}\n.textleft{ text-align:left;}\n @media(max-width:640px){.printpage{width:100%;}}\n</style></head><body style='font-size:15px; font-family:arial;'><table class='printpage'><tr><td class='fontbold' colspan='2'>STRUK PEMBAYARAN TIKET KERETA API </td></tr><tr><td class='fontbold'>KODE BOOKING</td><td class='textleft'>:&nbsp;&nbsp;&nbsp;&nbsp;53RHRA          </td></tr><tr><td class='fontbold'>KODE BAYAR</td><td class='textleft'>:&nbsp;&nbsp;&nbsp;&nbsp;9994557279804</td></tr><tr><td class='fontbold'>NAMA PENUMPANG</td><td class='textleft'>:&nbsp;&nbsp;&nbsp;&nbsp;FX SYAHASTA APRIL TANTRI</td></tr><tr><td class='fontbold'>TOTAL BAYAR</td><td class='textleft'>:&nbsp;&nbsp;&nbsp;&nbsp;Rp.17.500</td></tr><tr><td class='fontbold'>REF FM</td><td class='textleft'>:&nbsp;&nbsp;&nbsp;&nbsp;201712221506399994557279804</td></tr><tr><td class='fontbold'>NAMA KA</td><td class='textleft'>:&nbsp;&nbsp;&nbsp;&nbsp;PANGRANGO                     </td></tr><tr><td class='fontbold'>RUTE</td><td class='textleft'>:&nbsp;&nbsp;&nbsp;&nbsp;BOO-CBD</td></tr><tr><td class='fontbold'>BERANGKAT</td><td class='textleft'>:&nbsp;&nbsp;&nbsp;&nbsp;18/01/2018 18.30</td></tr><tr><td class='fontbold'>TIBA</td><td class='textleft'>:&nbsp;&nbsp;&nbsp;&nbsp;18/01/2018 19.58</td></tr><tr><td class='fontbold'>KURSI</td><td class='textleft'>:&nbsp;&nbsp;&nbsp;&nbsp;2A</td></tr><tr><td class='fontbold' COLSPAN='2'></td></tr></table></body></html>"
             }
         }
 
@@ -2764,7 +2785,9 @@ status: todo
                 "service_product": "Pulsa Telkomsel 10.000",
                 "phone_number": "082138844644",
                 "order_id": "VJD123",
-                "amount": 10000
+                "amount": 10000,
+                "print": "*************KIOSON*************~*********www.kioson.com*********~ID KCP       :R82T~--------------------------------~STRUK PEMBELIAN PULSA XL ~--------------------------------~TANGGAL     :2017-12-07 14:12:14~ID Pesanan       :113X67CQ~Operator         :XL~Nomer Handphone  :0818457475~Nilai Transaksi  :Rp.6.500~--------------------------------~Terima kasih telah bertransaksi di kioson~Untuk informasi lebih lanjut~silahkan hubungi~XL:0818-0721-8383~Indosat:0857-7625-8383~3 Three:0899-983-8383~Telkomsel:0812-9556-8383~================================~*********www.kioson.com**********~",
+                "print_html": "<html><head>\n<style type='text/css'>\n\n.printpage, .printpage th, .printpage td {\n    /* border: 1px solid black; */\n    border-collapse: collapse;\n}\n.printpage{border: 2px solid #ccc; width:60%;}\n.printpage th, .printpage td {padding:8px; width:50%;}\n.printpage{margin-left:auto; margin-right:auto;}\n .fontbold{ font-weight:bold; text-align:left;}\n.textleft{ text-align:left;}\n @media(max-width:640px){.printpage{width:100%;}}\n</style></head><body style='font-size:15px; font-family:arial;'><table class='printpage'><tr><td class='fontbold' colspan='2'>STRUK PEMBAYARAN TIKET KERETA API </td></tr><tr><td class='fontbold'>KODE BOOKING</td><td class='textleft'>:&nbsp;&nbsp;&nbsp;&nbsp;53RHRA          </td></tr><tr><td class='fontbold'>KODE BAYAR</td><td class='textleft'>:&nbsp;&nbsp;&nbsp;&nbsp;9994557279804</td></tr><tr><td class='fontbold'>NAMA PENUMPANG</td><td class='textleft'>:&nbsp;&nbsp;&nbsp;&nbsp;FX SYAHASTA APRIL TANTRI</td></tr><tr><td class='fontbold'>TOTAL BAYAR</td><td class='textleft'>:&nbsp;&nbsp;&nbsp;&nbsp;Rp.17.500</td></tr><tr><td class='fontbold'>REF FM</td><td class='textleft'>:&nbsp;&nbsp;&nbsp;&nbsp;201712221506399994557279804</td></tr><tr><td class='fontbold'>NAMA KA</td><td class='textleft'>:&nbsp;&nbsp;&nbsp;&nbsp;PANGRANGO                     </td></tr><tr><td class='fontbold'>RUTE</td><td class='textleft'>:&nbsp;&nbsp;&nbsp;&nbsp;BOO-CBD</td></tr><tr><td class='fontbold'>BERANGKAT</td><td class='textleft'>:&nbsp;&nbsp;&nbsp;&nbsp;18/01/2018 18.30</td></tr><tr><td class='fontbold'>TIBA</td><td class='textleft'>:&nbsp;&nbsp;&nbsp;&nbsp;18/01/2018 19.58</td></tr><tr><td class='fontbold'>KURSI</td><td class='textleft'>:&nbsp;&nbsp;&nbsp;&nbsp;2A</td></tr><tr><td class='fontbold' COLSPAN='2'></td></tr></table></body></html>"
             }
         }
 
@@ -2789,7 +2812,9 @@ status: todo
                 "service_product": "Paket Data TELKOMSEL 10RB, 45MB 30HR",
                 "phone_number": "082138844644",
                 "order_id": "VJD123",
-                "amount": 10000
+                "amount": 10000,
+                "print": "*************KIOSON*************~*********www.kioson.com*********~ID KCP       :R82T~--------------------------------~STRUK PEMBELIAN PULSA XL ~--------------------------------~TANGGAL     :2017-12-07 14:12:14~ID Pesanan       :113X67CQ~Operator         :XL~Nomer Handphone  :0818457475~Nilai Transaksi  :Rp.6.500~--------------------------------~Terima kasih telah bertransaksi di kioson~Untuk informasi lebih lanjut~silahkan hubungi~XL:0818-0721-8383~Indosat:0857-7625-8383~3 Three:0899-983-8383~Telkomsel:0812-9556-8383~================================~*********www.kioson.com**********~",
+                "print_html": "<html><head>\n<style type='text/css'>\n\n.printpage, .printpage th, .printpage td {\n    /* border: 1px solid black; */\n    border-collapse: collapse;\n}\n.printpage{border: 2px solid #ccc; width:60%;}\n.printpage th, .printpage td {padding:8px; width:50%;}\n.printpage{margin-left:auto; margin-right:auto;}\n .fontbold{ font-weight:bold; text-align:left;}\n.textleft{ text-align:left;}\n @media(max-width:640px){.printpage{width:100%;}}\n</style></head><body style='font-size:15px; font-family:arial;'><table class='printpage'><tr><td class='fontbold' colspan='2'>STRUK PEMBAYARAN TIKET KERETA API </td></tr><tr><td class='fontbold'>KODE BOOKING</td><td class='textleft'>:&nbsp;&nbsp;&nbsp;&nbsp;53RHRA          </td></tr><tr><td class='fontbold'>KODE BAYAR</td><td class='textleft'>:&nbsp;&nbsp;&nbsp;&nbsp;9994557279804</td></tr><tr><td class='fontbold'>NAMA PENUMPANG</td><td class='textleft'>:&nbsp;&nbsp;&nbsp;&nbsp;FX SYAHASTA APRIL TANTRI</td></tr><tr><td class='fontbold'>TOTAL BAYAR</td><td class='textleft'>:&nbsp;&nbsp;&nbsp;&nbsp;Rp.17.500</td></tr><tr><td class='fontbold'>REF FM</td><td class='textleft'>:&nbsp;&nbsp;&nbsp;&nbsp;201712221506399994557279804</td></tr><tr><td class='fontbold'>NAMA KA</td><td class='textleft'>:&nbsp;&nbsp;&nbsp;&nbsp;PANGRANGO                     </td></tr><tr><td class='fontbold'>RUTE</td><td class='textleft'>:&nbsp;&nbsp;&nbsp;&nbsp;BOO-CBD</td></tr><tr><td class='fontbold'>BERANGKAT</td><td class='textleft'>:&nbsp;&nbsp;&nbsp;&nbsp;18/01/2018 18.30</td></tr><tr><td class='fontbold'>TIBA</td><td class='textleft'>:&nbsp;&nbsp;&nbsp;&nbsp;18/01/2018 19.58</td></tr><tr><td class='fontbold'>KURSI</td><td class='textleft'>:&nbsp;&nbsp;&nbsp;&nbsp;2A</td></tr><tr><td class='fontbold' COLSPAN='2'></td></tr></table></body></html>"
             }
         }
 
@@ -3093,7 +3118,9 @@ status: todo
                 "service_product": "AIR PDAM - Desember 2017",
                 "customer_id": "asdf",
                 "order_id": "111BHJCQ",
-                "amount": 372275
+                "amount": 372275,
+                "print": "*************KIOSON*************~*********www.kioson.com*********~ID KCP       :R82T~--------------------------------~STRUK PEMBELIAN PULSA XL ~--------------------------------~TANGGAL     :2017-12-07 14:12:14~ID Pesanan       :113X67CQ~Operator         :XL~Nomer Handphone  :0818457475~Nilai Transaksi  :Rp.6.500~--------------------------------~Terima kasih telah bertransaksi di kioson~Untuk informasi lebih lanjut~silahkan hubungi~XL:0818-0721-8383~Indosat:0857-7625-8383~3 Three:0899-983-8383~Telkomsel:0812-9556-8383~================================~*********www.kioson.com**********~",
+                "print_html": "<html><head>\n<style type='text/css'>\n\n.printpage, .printpage th, .printpage td {\n    /* border: 1px solid black; */\n    border-collapse: collapse;\n}\n.printpage{border: 2px solid #ccc; width:60%;}\n.printpage th, .printpage td {padding:8px; width:50%;}\n.printpage{margin-left:auto; margin-right:auto;}\n .fontbold{ font-weight:bold; text-align:left;}\n.textleft{ text-align:left;}\n @media(max-width:640px){.printpage{width:100%;}}\n</style></head><body style='font-size:15px; font-family:arial;'><table class='printpage'><tr><td class='fontbold' colspan='2'>STRUK PEMBAYARAN TIKET KERETA API </td></tr><tr><td class='fontbold'>KODE BOOKING</td><td class='textleft'>:&nbsp;&nbsp;&nbsp;&nbsp;53RHRA          </td></tr><tr><td class='fontbold'>KODE BAYAR</td><td class='textleft'>:&nbsp;&nbsp;&nbsp;&nbsp;9994557279804</td></tr><tr><td class='fontbold'>NAMA PENUMPANG</td><td class='textleft'>:&nbsp;&nbsp;&nbsp;&nbsp;FX SYAHASTA APRIL TANTRI</td></tr><tr><td class='fontbold'>TOTAL BAYAR</td><td class='textleft'>:&nbsp;&nbsp;&nbsp;&nbsp;Rp.17.500</td></tr><tr><td class='fontbold'>REF FM</td><td class='textleft'>:&nbsp;&nbsp;&nbsp;&nbsp;201712221506399994557279804</td></tr><tr><td class='fontbold'>NAMA KA</td><td class='textleft'>:&nbsp;&nbsp;&nbsp;&nbsp;PANGRANGO                     </td></tr><tr><td class='fontbold'>RUTE</td><td class='textleft'>:&nbsp;&nbsp;&nbsp;&nbsp;BOO-CBD</td></tr><tr><td class='fontbold'>BERANGKAT</td><td class='textleft'>:&nbsp;&nbsp;&nbsp;&nbsp;18/01/2018 18.30</td></tr><tr><td class='fontbold'>TIBA</td><td class='textleft'>:&nbsp;&nbsp;&nbsp;&nbsp;18/01/2018 19.58</td></tr><tr><td class='fontbold'>KURSI</td><td class='textleft'>:&nbsp;&nbsp;&nbsp;&nbsp;2A</td></tr><tr><td class='fontbold' COLSPAN='2'></td></tr></table></body></html>"
             }
         }
 
